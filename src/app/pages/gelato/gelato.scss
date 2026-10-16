@@ -116,7 +116,7 @@
 }
 .item {
   display: grid;
-  grid-template-columns: 6.5rem minmax(0, 1fr);
+  grid-template-columns: 6.75rem minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
   padding: 1.5rem 0.75rem 1.5rem 0.5rem;
@@ -131,18 +131,21 @@
   background: var(--lemon-wash);
 }
 .item__plate {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 6.5rem;
+  width: 6.75rem;
   aspect-ratio: 1;
-  padding: 0.3rem;
-  border: 3px solid var(--navy);
-  border-radius: 50%;
-  background: var(--lemon-wash);
-  box-shadow:
-    0 0 0 4px var(--cream),
-    0 0 0 6px var(--cobalt);
+  padding: 10.8%;
+  background: radial-gradient(circle, var(--lemon-wash) 0 64%, transparent 65%);
   transition: transform 520ms var(--ease-out);
+}
+.item__plate::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../../../assets/art/plate-rim.webp') center / 100% 100% no-repeat;
+  pointer-events: none;
 }
 .item__plate lp-photo {
   width: 100%;
@@ -255,11 +258,11 @@
 }
 @media (max-width: 30rem) {
   .item {
-    grid-template-columns: 5rem minmax(0, 1fr);
+    grid-template-columns: 5.25rem minmax(0, 1fr);
     gap: 1rem;
   }
   .item__plate {
-    width: 5rem;
+    width: 5.25rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {

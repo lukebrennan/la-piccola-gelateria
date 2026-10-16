@@ -17,6 +17,7 @@ import { Reveal } from '../../core/reveal';
 import { PhotoComponent } from '../../shared/photo';
 import { MapEmbed } from '../../shared/map';
 import { Hours } from '../../shared/hours';
+import { TileWall } from '../../shared/tilewall';
 import { IconComponent } from '../../shared/icon';
 import { FLAVOURS } from '../../data/flavours';
 import { INGREDIENTS } from '../../data/ingredients';
@@ -43,7 +44,7 @@ const INGREDIENT_ICON: Record<string, IconName> = {
 
 @Component({
   selector: 'lp-home',
-  imports: [RouterLink, PhotoComponent, IconComponent, MapEmbed, Hours, Reveal],
+  imports: [RouterLink, PhotoComponent, IconComponent, MapEmbed, Hours, TileWall, Reveal],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './home.html',
   styleUrl: './home.scss',

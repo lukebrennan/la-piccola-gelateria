@@ -46,3 +46,6 @@ Thumbs.db
 # Design review captures (large, regenerated on demand)
 /.impeccable/review/
 /.impeccable/build/
+
+# Rendered art intermediates (regenerate with design-assets/art/build.sh)
+/design-assets/art/png/

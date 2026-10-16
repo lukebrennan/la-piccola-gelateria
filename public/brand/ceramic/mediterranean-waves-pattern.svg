@@ -1,3 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
-<defs><pattern id="waves" width="180" height="120" patternUnits="userSpaceOnUse"><path d="M0 62 Q45 24 90 62 T180 62" fill="none" stroke="#123B66" stroke-width="10"/><path d="M0 89 Q45 51 90 89 T180 89" fill="none" stroke="#155CA2" stroke-width="6"/></pattern></defs><rect width="900" height="600" fill="url(#waves)"/>
-</svg>

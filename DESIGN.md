@@ -1,6 +1,6 @@
 ---
 name: La Piccola Gelateria
-description: An artisan Amalfi gelateria on cream and white, held together by navy type and hand-painted majolica ceramic punctuation.
+description: An artisan Amalfi gelateria on cream and white, held together by navy type and painterly Amalfi majolica artwork on a plaster-grain wall.
 colors:
   navy: "#123b66"
   cobalt: "#155ca2"
@@ -12,7 +12,7 @@ colors:
   ink-faint: "#54708c"
   lemon-wash: "#fff0c0"
   sea-wash: "#ecece6"
-  cream-2: "#eaf0f7"
+  cream-2: "#e5edf5"
 typography:
   display:
     fontFamily: "Bodoni Moda, Bodoni Fallback, Georgia, Times New Roman, serif"
@@ -101,8 +101,8 @@ components:
     padding: "0.15rem 0.7rem"
   frame-photo:
     backgroundColor: "{colors.cream}"
-    rounded: "1rem"
-    padding: "0.7rem"
+    rounded: "0"
+    padding: "clamp(2.4rem, 1.8rem + 2vw, 3.6rem)"
 ---
 
 # Design System: La Piccola Gelateria
@@ -111,17 +111,18 @@ components:
 
 **Creative North Star: "The Majolica Counter"**
 
-A modern editorial site on warm cream and white, where hand-painted majolica ceramic appears only as punctuation: a framed photograph, a tilted tile, a floral band between page and footer. Type is navy Bodoni Moda over DM Sans, with italic cobalt emphasis inside headings. Sections breathe (4rem to 8rem vertical rhythm) and alternate between cream, white and a pale blue wash, with one navy atmospheric break and a navy footer.
+A modern editorial site on warm cream and white, dressed in hand-painted Amalfi majolica: lemon, rosette and fleur tiles, round and square medallions, lemon branches, a painted border band, a painted plate rim and an ornate photo frame. The painted art is the strongest identifier and the illustration layer; the brand logos stay flat vector. Type is navy Bodoni Moda over DM Sans, with italic cobalt emphasis inside headings. Sections breathe (4rem to 8rem vertical rhythm) and alternate between cream, white and a pale Mediterranean-blue wash, with one navy tile-wall break and a navy footer.
 
-The system is warm and handmade rather than glossy. Ceramic details are slightly rotated stickers with soft shadows; photographs sit inside navy-and-cobalt double-line frames, like glazed plates. The pattern is never wallpaper: the wave pattern appears only as a masked tint on navy.
+The system is rustic, ceramic and accent-rich, yet ordered: the whole document sits under a whitewashed-plaster grain (multiplied at 40%) so photographs, grounds and painted art read as one wall. Tiles are slightly rotated and sit at the corners of art, in tile walls (a laid row of tiles) or in a painted band; photographs sit in an ornate painted frame or on a painted-rim plate. Ornament frames and edges content; it is never wallpaper behind text.
 
 **Key Characteristics:**
-- Cream (#fff9ec) ground, navy for type and anchoring bands, cobalt for links and emphasis, lemon in small doses.
+- Cream (#fff9ec) ground under plaster grain, navy for type and anchoring bands, cobalt for links and emphasis, lemon in small doses.
+- Painterly majolica (cobalt, soft blue, lemon, leaf, glaze white) as the illustration layer; flat vector for logos only.
 - Bodoni Moda display with italic cobalt emphasis; DM Sans body.
-- Double-line ceramic frame (navy outer, cobalt inner) as the signature container.
-- Round "plate" rims, arched window, tilted tiles and seal.
+- Ornate painted frame (9-slice image border) as the signature photo container; arch window and painted-rim plates.
+- Tile walls in the navy break and footer; painted band above the footer and under each inner page header.
 - Squared-off 0.7rem buttons that gain a lemon ring on hover.
-- Flat at rest; soft navy-tinted shadows only on sticker-like ceramic and collage pieces.
+- Flat at rest; soft navy-tinted shadows only on collage prints and notes.
 
 ## Colors
 
@@ -143,11 +144,13 @@ A Mediterranean palette: sea navy and cobalt on sun-warmed cream, with lemon as 
 - **Soft Ink** ({colors.ink-soft}): secondary body text, derived as navy 80% over cream.
 - **Faint Ink** ({colors.ink-faint}): metadata, captions, crumbs; navy 72% over cream.
 - **Lemon Wash** ({colors.lemon-wash}): plate discs, today row, active ingredient highlight, targeted menu item.
-- **Sea Wash** ({colors.sea-wash}) and **Pale Cobalt Wash** ({colors.cream-2}): quiet tinted section grounds (story) and image placeholders.
+- **Sea Wash** ({colors.sea-wash}): image placeholders and the ingredient panel ground.
+- **Pale Mediterranean Blue** ({colors.cream-2}): cobalt 11% over white; the story section ground, a clear blue step from cream.
 - Hairlines: navy at 16% (`--line`) and 30% (`--line-strong`).
 
 ### Named Rules
-**The Punctuation Rule.** Lemon is a small accent, never a section ground. Ceramic ornament punctuates; it never tiles behind content except as a masked tint on navy.
+**The Punctuation Rule.** Lemon is a small accent, never a section ground. Painted ornament frames, borders and sits beside content (corners of art, tile walls, bands); it never tiles behind text except as the masked wave tint on navy.
+**The Painted Not Printed Rule.** Illustration is painterly majolica from design-assets/art (procedural SVG rendered to WebP). Flat brand-kit tile or border SVGs are not used on the page; logos alone stay flat vector.
 **The Navy Ink Rule.** Text is navy (or its soft/faint derivations), never black or grey.
 
 ## Typography
@@ -174,20 +177,20 @@ Container is `min(100% - 2 * gutter, 75rem)` with a fluid gutter (1.25rem to 2.5
 
 ## Elevation & Depth
 
-Flat by default, with tonal alternation between cream, white and wash grounds for separation and hairlines for structure. Shadows are reserved for ceramic stickers and collage prints.
+Flat by default, with tonal alternation between cream, white and wash grounds for separation and hairlines for structure. Painted frames and rims carry the edge definition; painted tiles have their depth baked into the artwork. A plaster grain (`body::before`, multiply, 40%, 512px tile) sits over the whole document. Soft shadows are reserved for collage prints and notes.
 
 ### Shadow Vocabulary
-- **Sticker** (`filter: drop-shadow(0 8px 14px navy 22%)`): tilted tiles, seal, sprigs.
 - **Print** (`box-shadow: 0 18px 30px -18px navy 45%`): collage photographs, note cards (soft, offset downward, negative spread).
-- **Plate rim** (`box-shadow: 0 0 0 5px white`, or `0 0 0 4px cream, 0 0 0 6px cobalt` on menu items): ring layers, not depth.
 - **Open dot halo** (`0 0 0 4px leaf 22%`).
+- **Plaster grain** (`body::before`, `mix-blend-mode: multiply`, opacity 0.4): a texture, not a shadow; sits above content, pointer-events none.
 
 ### Named Rules
-**The Soft Sticker Rule.** Shadows are blurred and navy-tinted. Hard offset shadows have no place here.
+**The Soft Shadow Rule.** Shadows are blurred and navy-tinted. Hard offset shadows have no place here.
+**The One Wall Rule.** The grain covers everything equally; do not add per-section textures or second grain layers.
 
 ## Shapes
 
-Soft and glazed. Buttons 0.7rem; cards, photos and frames 0.5rem to 1rem; frames use a 5px navy border with a 2px cobalt inner line inset about 0.26rem. The hero is an arch (50% top corners over 1.2rem bottom, 6px navy border). Flavour photos sit on round plates (50%, 5px navy border). Chips and tabs are full pills (99px). Small rotations (-9deg to 10deg) mark stickers.
+Soft, glazed and hand-painted. Buttons 0.7rem; collage photos 0.3rem to 0.8rem. The ornate frame is a painted 9-slice image border (width clamp 2.4rem to 3.6rem, image repeated "round") with a cream fill and a 0.2rem photo radius. The hero is an arch (50% top corners over 1.2rem bottom, 6px navy border with a 2px cobalt inner line). Flavour and menu photos sit on round plates (50%) with a painted rim overlay over a lemon-wash disc. Chips and tabs are full pills (99px). Tiles and medallions carry small rotations (-9deg to 10deg); tile-wall tiles tilt about 1deg and overlap by 3.5%.
 
 ## Components
 
@@ -205,10 +208,11 @@ Semibold with a lemon underline bar that sweeps to a full highlight on hover; ar
 - Chips: pills, 0.75rem semibold; lemon (today/new), leaf tint (dairy-free), sea-wash with cobalt text (seasonal), outlined neutral default.
 
 ### Cards / Containers
-- **Ceramic frame:** cream, 5px navy border, 1rem radius, 0.7rem padding, cobalt inner line. Holds photographs.
-- **Plate:** round photo disc on lemon wash with navy rim, centred name in Bodoni and a muted description.
-- **Menu item:** hairline top rule, 6.5rem round plate with navy/cobalt rings, title, description, chips.
+- **Ornate frame** (`.frame` / `.ornate`): cream fill, painted 9-slice border image, holds photographs (lemon and ingredient panels).
+- **Plate:** round photo disc on lemon wash with a painted rim image overlaid (`plate-rim.webp`), centred Bodoni name and muted description. Same rim on menu items at 6.75rem (5.25rem mobile).
+- **Menu item:** hairline top rule, rimmed plate, title, description, chips.
 - **Note card:** cream, 2px cobalt border, 1px navy inner outline, slight rotation, italic Bodoni quote.
+- **Collage prints:** white or cream 6px to 8px border, Print shadow, slight tilt.
 
 ### Navigation
 Desktop: DM Sans 500 links with a 3px lemon underline that scales in on hover and for the active page. Mobile: bordered 3rem hamburger opening a navy full-screen sheet with Bodoni links at 1.75rem to 2.25rem, a masked cobalt wave pattern at the foot, and a lemon Find Us button.
@@ -217,28 +221,39 @@ Desktop: DM Sans 500 links with a 3px lemon underline that scales in on hover an
 Hairline rows, today highlighted with lemon wash and a small navy "today" pill.
 
 ### Ceramic band
-A repeating floral ceramic strip (1.5rem to 2.25rem tall) divides content from the footer and each inner page header.
+`.ceramic-band`: a painted border strip (`band.webp`, repeat-x, 2.75rem to 4.25rem tall) between sections, above the footer and under each inner page header.
 
-### Signature: Majolica tiles
-Tile, seal and sprig illustrations placed at the corners of art, rotated, with Sticker shadow, never in text flow.
+### Tile wall
+`lp-tilewall`: a centred row of 16 painted tiles cycling lemons, round medallion, rosette, fleur, square medallion; each 4.75rem to 9rem (small 3.5rem to 6rem), overlapped and tilted, clipped to the container, decorative. Used above and below the navy break heading and in the footer.
+
+### Page-head tile cluster
+Inner page headers pair breadcrumbs, H1 and lede with a cluster of three rotated tiles (lemons, round medallion, rosette) at right; hidden under 40rem.
+
+### Signature: Painted majolica
+Tiles, medallions and lemon branches (`.deco`, absolutely positioned, aria-hidden, no pointer events) at the corners of the hero arch, collage, lemon frame, story scrap and gallery. Lemon branches overhang frames and drift slightly on scroll where supported.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** set page ground to cream and alternate with white or the pale washes.
-- **Do** frame photographs in the navy and cobalt double-line frame, a plate, or the arch.
+- **Do** set page ground to cream and alternate with white or the pale blue and sea washes.
+- **Do** frame photographs in the ornate painted frame, a rimmed plate, or the arch.
+- **Do** draw new ornament in the same painterly majolica language (cobalt family, lemon, leaf, glaze white) via design-assets/art and render to WebP; mark it `.deco` or aria-hidden.
 - **Do** use Bodoni Moda with an italic cobalt `em` for headings and DM Sans for everything else.
 - **Do** keep lemon to small accents and use navy for dark sections and the footer.
 - **Do** keep content visible by default; reveal motion is enhancement only and honours reduced motion.
 - **Do** keep tap targets at least 2.5rem tall and focus rings always visible.
 
 ### Don't:
-- **Don't** tile ceramic patterns behind content; the wave pattern appears only as a masked tint on navy.
-- **Don't** add cartoon lemons, Italian-restaurant clichés, or beige luxury tones.
+- **Don't** tile ceramic patterns behind text; the wave pattern appears only as a masked tint on navy.
+- **Don't** put flat brand-kit tile or border SVGs on the page, or paint logos in the majolica style.
+- **Don't** add cartoon lemons, Italian-restaurant clichés, or beige luxury tones; lemons are painted majolica.
+- **Don't** add a second texture or grain layer; the plaster grain is the one wall surface.
 - **Don't** use black, grey or pure cream text on cream.
 - **Don't** use hard offset shadows; shadows stay soft and navy-tinted.
 
 ## Not canonized (build defects, not rules)
-- The footer column headings are tracked uppercase small labels in lemon; this is a label-style device and is not a pattern for new surfaces.
+- The footer column headings are tracked uppercase small labels in lemon; a label-style device, not a pattern for new surfaces.
 - The "→" link arrow is a text glyph; new arrows should use inline SVG as the nav and buttons do.
-- The hero seal runs an infinite sway animation, and chips and pills drop to 0.7rem to 0.75rem, below the label step.
+- The hero medallion runs an infinite sway animation, and chips and pills drop to 0.7rem to 0.75rem, below the label step.
+- The grain overlay sits at z-index 3 above page content (only header, sheet and skip link are isolated); it is a texture with no pointer events, but check text contrast and any new overlays against it.
+- Stale selectors remain in home.scss and app.scss (`.hero__seal`, `.lemon__sprig`, `.footer__sprig`) from the earlier art; hero art and the tile wall are not yet tuned for narrow screens beyond clamp sizing. Left unrepaired.

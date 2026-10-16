@@ -273,8 +273,11 @@
 /* Footer */
 .footer {
   position: relative;
-  padding-top: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+  padding-top: clamp(1.5rem, 1rem + 2vw, 2.5rem);
   overflow: hidden;
+}
+.footer__wall {
+  margin-bottom: clamp(2rem, 1.5rem + 3vw, 4rem);
 }
 .footer__grid {
   display: grid;
@@ -346,9 +349,10 @@
 }
 .footer__sprig {
   grid-area: sprig;
-  width: 5.5rem;
+  width: clamp(8rem, 6rem + 6vw, 12rem);
   height: auto;
-  transform: rotate(-6deg);
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 6px 10px color-mix(in srgb, #000 30%, transparent));
 }
 .footer__signoff {
   grid-area: signoff;

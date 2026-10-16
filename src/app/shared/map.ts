@@ -22,7 +22,7 @@ import { PhotoComponent } from './photo';
   imports: [PhotoComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="map">
+    <div class="map ornate">
       @if (loaded()) {
         <iframe
           title="Map showing La Piccola Gelateria in Amalfi"
@@ -51,12 +51,7 @@ import { PhotoComponent } from './photo';
       .map {
         position: relative;
         aspect-ratio: 4 / 3.2;
-        border: 6px solid var(--navy);
-        border-radius: 1rem;
-        outline: 2px solid var(--cobalt);
-        outline-offset: 5px;
         overflow: hidden;
-        background: var(--sea-wash);
       }
       iframe {
         position: absolute;

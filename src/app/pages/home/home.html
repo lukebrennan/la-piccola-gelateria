@@ -29,8 +29,10 @@
           [priority]="true"
         />
       </div>
-      <img class="hero__seal" src="brand/logos/logo-round-seal-colour.svg" alt="" width="132" height="132" />
-      <img class="hero__tile" src="brand/tiles/majolica-lemon-tile.svg" alt="" width="96" height="96" />
+      <img class="deco hero__branch" src="art/branch-b.webp" alt="" width="520" height="277" />
+      <img class="deco hero__medal" src="art/medallion-round.webp" alt="" width="200" height="200" />
+      <img class="deco hero__tile" src="art/tile-lemons.webp" alt="" width="180" height="180" />
+      <img class="deco hero__tile2" src="art/tile-rosette.webp" alt="" width="150" height="150" />
     </div>
   </div>
 </section>
@@ -42,7 +44,7 @@
       <lp-photo class="collage__a" [photo]="photos.lemonSorbet" [ratio]="3 / 4" sizes="(min-width: 62rem) 26vw, 52vw" />
       <lp-photo class="collage__b" [photo]="photos.fiveBowls" [ratio]="4 / 3" sizes="(min-width: 62rem) 24vw, 52vw" />
       <lp-photo class="collage__c" [photo]="photos.street" [ratio]="1" sizes="(min-width: 62rem) 16vw, 34vw" />
-      <img class="collage__tile" src="brand/tiles/majolica-sea-and-sun-tile.svg" alt="" width="92" height="92" loading="lazy" />
+      <img class="deco collage__tile" src="art/tile-rosette.webp" alt="" width="150" height="150" loading="lazy" />
     </div>
 
     <div class="intro__copy" lpReveal [lpReveal]="120">
@@ -97,15 +99,21 @@
   <div class="ceramic-band" aria-hidden="true"></div>
   <div class="container lemon__grid">
     <div class="lemon__art" lpReveal>
-      <div class="lemon__block" aria-hidden="true"></div>
-      <lp-photo
-        class="lemon__photo"
-        [class.parallax]="true"
-        [photo]="photos.lemonGrove"
-        [ratio]="4 / 5"
-        sizes="(min-width: 62rem) 40vw, 88vw"
-      />
-      <img class="lemon__sprig" src="brand/ceramic/amalfi-lemon-sprig-transparent.svg" alt="" width="170" height="100" loading="lazy" />
+      <div class="lemon__tiles" aria-hidden="true">
+        <img src="art/tile-fleur.webp" alt="" width="180" height="180" loading="lazy" />
+        <img src="art/tile-lemons.webp" alt="" width="180" height="180" loading="lazy" />
+        <img src="art/tile-rosette.webp" alt="" width="180" height="180" loading="lazy" />
+        <img src="art/medallion-square.webp" alt="" width="180" height="180" loading="lazy" />
+      </div>
+      <div class="frame lemon__frame">
+        <lp-photo
+          [class.parallax]="true"
+          [photo]="photos.lemonGrove"
+          [ratio]="4 / 5"
+          sizes="(min-width: 62rem) 36vw, 80vw"
+        />
+      </div>
+      <img class="deco lemon__branch" src="art/branch-a.webp" alt="" width="520" height="277" loading="lazy" />
     </div>
 
     <div class="lemon__copy" lpReveal [lpReveal]="120">
@@ -152,7 +160,7 @@
         <figcaption>From the recipe notebook</figcaption>
       </figure>
       <lp-photo class="scrap__tiles" [photo]="photos.ceramics" [ratio]="1" sizes="(min-width: 62rem) 16vw, 34vw" />
-      <img class="scrap__tile" src="brand/tiles/majolica-diamond-tile.svg" alt="" width="84" height="84" loading="lazy" />
+      <img class="deco scrap__tile" src="art/medallion-square.webp" alt="" width="150" height="150" loading="lazy" />
     </div>
   </div>
 </section>
@@ -187,7 +195,7 @@
     </div>
 
     <figure class="ingredients__panel" aria-live="polite">
-      <div class="panel__frame">
+      <div class="frame panel__frame">
         @if (activeIng().photo; as key) {
           <lp-photo [photo]="photos[key]" [ratio]="4 / 5" sizes="(min-width: 62rem) 36vw, 90vw" [alt]="activeIng().name" />
         } @else {
@@ -206,16 +214,12 @@
 
 <!-- Atmospheric break -->
 <section class="break dark" aria-labelledby="break-h">
+  <lp-tilewall class="break__wall" />
   <div class="container break__inner">
     <h2 id="break-h">La <em>dolce vita,</em> one scoop at a time.</h2>
-    <div class="break__tiles" aria-hidden="true">
-      <img src="brand/tiles/majolica-lemon-tile.svg" alt="" width="120" height="120" loading="lazy" />
-      <img src="brand/tiles/majolica-flower-tile.svg" alt="" width="120" height="120" loading="lazy" />
-      <img src="brand/tiles/majolica-diamond-tile.svg" alt="" width="120" height="120" loading="lazy" />
-      <img src="brand/tiles/majolica-sea-and-sun-tile.svg" alt="" width="120" height="120" loading="lazy" />
-    </div>
     <a class="btn btn--lemon" routerLink="/gelato" [queryParams]="{ today: 1 }">See what is on today</a>
   </div>
+  <lp-tilewall class="break__wall" />
 </section>
 
 <!-- Visit -->
@@ -249,6 +253,7 @@
 
 <!-- Gallery -->
 <section class="section gallery" aria-labelledby="gallery-h">
+  <img class="deco gallery__medal" src="art/medallion-round.webp" alt="" width="200" height="200" loading="lazy" />
   <div class="container">
     <div class="head">
       <h2 id="gallery-h">Amalfi, <em>one frame at a time.</em></h2>

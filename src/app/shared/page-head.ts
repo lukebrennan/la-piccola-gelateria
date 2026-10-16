@@ -31,9 +31,9 @@ export interface Crumb {
         <ng-content />
       </div>
       <div class="head__art" aria-hidden="true">
-        <img class="t t--a" src="brand/tiles/majolica-lemon-tile.svg" alt="" width="120" height="120" />
-        <img class="t t--b" src="brand/tiles/majolica-flower-tile.svg" alt="" width="104" height="104" />
-        <img class="t t--c" src="brand/tiles/majolica-sea-and-sun-tile.svg" alt="" width="92" height="92" />
+        <img class="t t--a" src="art/tile-lemons.webp" alt="" width="180" height="180" />
+        <img class="t t--b" src="art/medallion-round.webp" alt="" width="150" height="150" />
+        <img class="t t--c" src="art/tile-rosette.webp" alt="" width="140" height="140" />
       </div>
     </div>
     <div class="ceramic-band" aria-hidden="true"></div>
@@ -84,13 +84,12 @@ export interface Crumb {
       }
       .head__art {
         position: relative;
-        width: clamp(9rem, 6rem + 12vw, 16rem);
-        height: clamp(8rem, 5rem + 10vw, 14rem);
+        width: clamp(10rem, 6rem + 14vw, 19rem);
+        height: clamp(9rem, 5rem + 12vw, 16rem);
       }
       .t {
         position: absolute;
         height: auto;
-        filter: drop-shadow(0 8px 12px color-mix(in srgb, var(--navy) 20%, transparent));
       }
       .t--a {
         width: 52%;

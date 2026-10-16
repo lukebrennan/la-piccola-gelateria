@@ -9,7 +9,7 @@ import { Seo } from '../../core/seo';
   template: `
     <section class="nf">
       <div class="container nf__inner">
-        <img src="brand/tiles/majolica-lemon-tile.svg" alt="" width="132" height="132" />
+        <img src="art/tile-lemons.webp" alt="" width="132" height="132" />
         <h1>This page has <em>melted.</em></h1>
         <p class="lede">
           We could not find what you were looking for. The gelato, at least, is exactly where we left
@@ -36,7 +36,6 @@ import { Seo } from '../../core/seo';
       img {
         height: auto;
         transform: rotate(-8deg);
-        filter: drop-shadow(0 8px 14px color-mix(in srgb, var(--navy) 22%, transparent));
       }
       .nf__actions {
         display: flex;

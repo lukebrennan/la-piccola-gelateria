@@ -54,7 +54,7 @@
   --ink-faint: color-mix(in srgb, var(--navy) 72%, var(--cream));
   --line: color-mix(in srgb, var(--navy) 16%, transparent);
   --line-strong: color-mix(in srgb, var(--navy) 30%, transparent);
-  --cream-2: color-mix(in srgb, var(--cobalt) 9%, var(--white));
+  --cream-2: color-mix(in srgb, var(--cobalt) 11%, var(--white));
   --lemon-wash: color-mix(in srgb, var(--lemon) 28%, var(--cream));
   --sea-wash: color-mix(in srgb, var(--cobalt) 8%, var(--cream));
 
@@ -101,6 +101,7 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   background: var(--cream);
   color: var(--ink);
@@ -111,6 +112,24 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
+}
+
+/* Whitewashed-plaster grain over everything, so photos and grounds feel like one wall */
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: url('assets/art/plaster.webp') 0 0 / 512px 512px;
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.header,
+.sheet,
+.skip-link {
+  /* keep the interface crisp above the grain */
+  isolation: isolate;
 }
 
 img,
@@ -344,6 +363,7 @@ table {
   color: var(--navy);
 }
 .btn--sm {
+  white-space: nowrap;
   min-height: 2.5rem;
   padding: 0.5rem 1.1rem;
   font-size: var(--step--1);
@@ -372,10 +392,17 @@ table {
   transform: translateX(4px);
 }
 
-/* Ceramic details */
+/* Ceramic details: a hand-painted tile border that repeats horizontally */
 .ceramic-band {
-  height: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
-  background: url('assets/ceramic/ceramic-floral-border.svg') repeat-x center / auto 100%;
+  height: clamp(2.75rem, 2rem + 2.4vw, 4.25rem);
+  background: url('assets/art/band.webp') repeat-x center / auto 100%;
+}
+/* Decorative artwork: never interactive, never read aloud */
+.deco {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  height: auto;
 }
 
 /* Two-column editorial split */
@@ -398,24 +425,17 @@ table {
 }
 
 /* Ceramic double-line frame for photographs */
-.frame {
+.frame,
+.ornate {
+  --frame-w: clamp(2.4rem, 1.8rem + 2vw, 3.6rem);
   position: relative;
-  padding: 0.7rem;
-  border: 5px solid var(--navy);
-  border-radius: 1rem;
+  border: var(--frame-w) solid transparent;
+  border-image: url('assets/art/frame.webp') 100 / var(--frame-w) / 0 round;
   background: var(--cream);
-}
-.frame::before {
-  content: '';
-  position: absolute;
-  inset: 0.26rem;
-  border: 2px solid var(--cobalt);
-  border-radius: 0.7rem;
-  pointer-events: none;
-  z-index: 1;
+  background-clip: padding-box;
 }
 .frame > lp-photo {
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
 }
 
 .stack {

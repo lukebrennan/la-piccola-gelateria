@@ -13,6 +13,7 @@
 
 /* ---------------------------------------------------------------- Hero */
 .hero {
+  position: relative;
   overflow-x: clip;
   padding-block: clamp(1.75rem, 0.75rem + 4vw, 4.5rem) clamp(3.5rem, 2rem + 5vw, 6.5rem);
 }
@@ -81,25 +82,32 @@
 .arch__photo {
   border-radius: 50% 50% 0.7rem 0.7rem / 40% 40% 0.7rem 0.7rem;
 }
-.hero__seal {
-  position: absolute;
+.hero__branch {
+  top: -4.2rem;
+  right: -3.2rem;
+  z-index: 4;
+  width: clamp(13rem, 9rem + 14vw, 25rem);
+}
+.hero__medal {
+  top: 3.5rem;
+  left: -2.4rem;
   z-index: 2;
-  top: -1.4rem;
-  right: -1.6rem;
-  width: clamp(5.5rem, 4rem + 4vw, 8rem);
-  height: auto;
-  filter: drop-shadow(0 8px 14px color-mix(in srgb, var(--navy) 22%, transparent));
+  width: clamp(5.25rem, 3.5rem + 5vw, 9rem);
   animation: sway 9s ease-in-out infinite;
 }
 .hero__tile {
-  position: absolute;
+  right: -2rem;
+  bottom: 1.5rem;
   z-index: 2;
-  left: -1.8rem;
-  bottom: 2.2rem;
-  width: clamp(4.5rem, 3.5rem + 3vw, 6.25rem);
-  height: auto;
+  width: clamp(5rem, 3.5rem + 4.5vw, 8.5rem);
+  transform: rotate(8deg);
+}
+.hero__tile2 {
+  left: -2.4rem;
+  bottom: 3.5rem;
+  z-index: 2;
+  width: clamp(4.5rem, 3rem + 3.5vw, 7rem);
   transform: rotate(-9deg);
-  filter: drop-shadow(0 8px 14px color-mix(in srgb, var(--navy) 22%, transparent));
 }
 @keyframes sway {
   0%,
@@ -149,12 +157,10 @@
   box-shadow: 0 12px 22px -14px color-mix(in srgb, var(--navy) 45%, transparent);
 }
 .collage__tile {
-  left: 7%;
-  bottom: -1%;
-  width: clamp(4.25rem, 3rem + 4vw, 6.25rem);
-  height: auto;
+  left: 5%;
+  bottom: -3%;
+  width: clamp(4.75rem, 3.5rem + 4.5vw, 7.5rem);
   transform: rotate(-7deg);
-  filter: drop-shadow(0 8px 12px color-mix(in srgb, var(--navy) 22%, transparent));
 }
 .intro__copy {
   display: grid;
@@ -192,15 +198,19 @@
   position: relative;
   display: grid;
   place-items: center;
-  width: min(100%, 17rem);
+  width: min(100%, 18rem);
   aspect-ratio: 1;
-  margin-bottom: 1.1rem;
-  padding: 0.6rem;
-  border: 5px solid var(--navy);
-  border-radius: 50%;
-  background: var(--lemon-wash);
-  box-shadow: 0 0 0 5px var(--white);
+  margin-bottom: 0.9rem;
+  padding: 10.8%;
+  background: radial-gradient(circle, var(--lemon-wash) 0 64%, transparent 65%);
   transition: transform 520ms var(--ease-out);
+}
+.plate__disc::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../../../assets/art/plate-rim.webp') center / 100% 100% no-repeat;
+  pointer-events: none;
 }
 .plate__disc lp-photo {
   width: 100%;
@@ -256,26 +266,29 @@
   width: 100%;
   max-width: 30rem;
 }
-.lemon__block {
+.lemon__tiles {
   position: absolute;
-  inset: 1.6rem -1.4rem -1.4rem 1.4rem;
-  border: 2px solid var(--cobalt);
-  border-radius: 0.9rem;
+  right: -3.4rem;
+  bottom: -3.2rem;
+  z-index: 0;
+  width: 68%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-.lemon__photo {
-  border: 6px solid var(--navy);
-  border-radius: 0.9rem;
-  outline: 2px solid var(--cobalt);
-  outline-offset: -0.9rem;
-}
-.lemon__sprig {
-  position: absolute;
-  top: -2.2rem;
-  right: -2.6rem;
-  width: clamp(7rem, 5rem + 6vw, 11rem);
+.lemon__tiles img {
+  width: 100%;
   height: auto;
-  transform: rotate(8deg);
-  filter: drop-shadow(0 6px 10px color-mix(in srgb, var(--navy) 18%, transparent));
+}
+.lemon__frame {
+  position: relative;
+  z-index: 1;
+}
+.lemon__branch {
+  top: -5.2rem;
+  left: -3rem;
+  z-index: 3;
+  width: clamp(15rem, 10rem + 14vw, 25rem);
+  transform-origin: 8% 10%;
 }
 .lemon__copy {
   display: grid;
@@ -309,7 +322,7 @@
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .lemon__sprig {
+    .lemon__branch {
       animation: drift linear both;
       animation-timeline: view();
       animation-range: entry 0% exit 100%;
@@ -318,10 +331,10 @@
 }
 @keyframes drift {
   from {
-    transform: translateY(28px) rotate(2deg);
+    transform: rotate(2.5deg);
   }
   to {
-    transform: translateY(-28px) rotate(14deg);
+    transform: rotate(-3deg);
   }
 }
 
@@ -396,12 +409,10 @@
   box-shadow: 0 14px 24px -14px color-mix(in srgb, var(--navy) 50%, transparent);
 }
 .scrap__tile {
-  left: 33%;
-  bottom: 6%;
-  width: clamp(3.75rem, 2.5rem + 4vw, 5.5rem);
-  height: auto;
+  left: 30%;
+  bottom: 2%;
+  width: clamp(4.5rem, 3rem + 5vw, 7.25rem);
   transform: rotate(10deg);
-  filter: drop-shadow(0 8px 12px color-mix(in srgb, var(--navy) 22%, transparent));
 }
 
 /* -------------------------------------------------------- Ingredients */
@@ -457,25 +468,6 @@ li:last-child .ing {
   top: calc(var(--header-h) + 2rem);
   margin: 0;
 }
-.panel__frame {
-  position: relative;
-  padding: 0.7rem;
-  border: 5px solid var(--navy);
-  border-radius: 1rem;
-  background: var(--cream);
-}
-.panel__frame::before {
-  content: '';
-  position: absolute;
-  inset: 0.26rem;
-  border: 2px solid var(--cobalt);
-  border-radius: 0.7rem;
-  pointer-events: none;
-  z-index: 1;
-}
-.panel__frame lp-photo {
-  border-radius: 0.5rem;
-}
 .panel__tile {
   display: grid;
   place-items: center;
@@ -501,7 +493,7 @@ li:last-child .ing {
 .break {
   position: relative;
   overflow: hidden;
-  padding-block: clamp(4.5rem, 3rem + 7vw, 9rem);
+  padding-block: clamp(1.25rem, 1rem + 1vw, 2rem);
   text-align: center;
 }
 .break::before {
@@ -509,39 +501,23 @@ li:last-child .ing {
   position: absolute;
   inset: 0;
   background: var(--cobalt);
-  opacity: 0.5;
+  opacity: 0.32;
   -webkit-mask: url('../../../assets/ceramic/mediterranean-waves-pattern.svg') center / 13rem auto;
   mask: url('../../../assets/ceramic/mediterranean-waves-pattern.svg') center / 13rem auto;
+}
+.break__wall {
+  position: relative;
 }
 .break__inner {
   position: relative;
   display: grid;
   justify-items: center;
-  gap: clamp(1.75rem, 1rem + 3vw, 3rem);
+  gap: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  padding-block: clamp(2.5rem, 1.5rem + 4.5vw, 5.5rem);
 }
 .break h2 {
   max-width: 17ch;
   font-size: var(--step-5);
-}
-.break__tiles {
-  display: flex;
-  justify-content: center;
-  gap: clamp(0.6rem, 0.3rem + 1.5vw, 1.5rem);
-  padding: clamp(0.6rem, 0.3rem + 1vw, 1rem);
-  border: 2px solid color-mix(in srgb, var(--cream) 55%, transparent);
-  border-radius: 1rem;
-  background: color-mix(in srgb, var(--navy) 70%, transparent);
-}
-.break__tiles img {
-  width: clamp(3.75rem, 2rem + 6vw, 7rem);
-  height: auto;
-  border-radius: 0.35rem;
-}
-.break__tiles img:nth-child(odd) {
-  transform: rotate(-2deg);
-}
-.break__tiles img:nth-child(even) {
-  transform: rotate(2.2deg);
 }
 
 /* -------------------------------------------------------------- Visit */
@@ -575,6 +551,17 @@ li:last-child .ing {
   gap: 0.75rem;
 }
 /* ------------------------------------------------------------ Gallery */
+.gallery {
+  position: relative;
+  overflow-x: clip;
+}
+.gallery__medal {
+  top: clamp(1rem, 3vw, 2.5rem);
+  right: 4%;
+  z-index: 4;
+  width: clamp(4.75rem, 3rem + 5vw, 8.5rem);
+  transform: rotate(10deg);
+}
 .mosaic {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -692,9 +679,6 @@ li:last-child .ing {
     max-width: 24rem;
     margin-top: 0.5rem;
   }
-  .hero__seal {
-    right: -0.8rem;
-  }
   .hero__tile {
     left: -0.8rem;
   }
@@ -705,10 +689,6 @@ li:last-child .ing {
     margin-inline: auto;
     margin-right: 1.4rem;
     max-width: 26rem;
-  }
-  .lemon__sprig {
-    right: -1rem;
-    top: -2.6rem;
   }
   .scrap {
     max-width: 36rem;
@@ -744,6 +724,11 @@ li:last-child .ing {
 }
 
 @media (max-width: 40rem) {
+  .hero__branch {
+    top: -3.1rem;
+    right: -3.9rem;
+    width: 11.5rem;
+  }
   .head {
     align-items: flex-start;
   }
@@ -758,9 +743,6 @@ li:last-child .ing {
   }
   .plate__name {
     font-size: var(--step-1);
-  }
-  .plate__disc {
-    box-shadow: 0 0 0 4px var(--white);
   }
   .scrap {
     aspect-ratio: 1 / 1.08;

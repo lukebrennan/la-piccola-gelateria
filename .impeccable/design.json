@@ -1,45 +1,283 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-16T00:00:00Z",
+  "generatedAt": "2026-10-16T12:00:00Z",
   "title": "Design System: La Piccola Gelateria",
   "extensions": {
     "colorMeta": {
-      "navy": { "role": "primary", "displayName": "Mediterranean Navy", "canonical": "#123b66", "tonalRamp": ["#04101c", "#081f36", "#123b66", "#2f5b8c", "#5d82ab", "#8eaac7", "#c0d0e1", "#e6edf4"] },
-      "cobalt": { "role": "primary", "displayName": "Glazed Cobalt", "canonical": "#155ca2", "tonalRamp": ["#051a30", "#0a2f55", "#155ca2", "#3a7fc4", "#6aa1d6", "#9bc0e5", "#c8dcf0", "#e8f0f8"] },
-      "lemon": { "role": "secondary", "displayName": "Amalfi Lemon", "canonical": "#ffd84d", "tonalRamp": ["#5c4700", "#8f6e00", "#c9a000", "#ffd84d", "#ffe17a", "#ffe99f", "#fff2c4", "#fff9e3"] },
-      "leaf": { "role": "tertiary", "displayName": "Leaf", "canonical": "#577a50", "tonalRamp": ["#14200f", "#243a1f", "#3b5535", "#577a50", "#789a71", "#9db899", "#c5d6c2", "#e5eee3"] },
-      "cream": { "role": "neutral", "displayName": "Cream", "canonical": "#fff9ec", "tonalRamp": ["#5c574c", "#8a8473", "#b8b09a", "#d9d0b8", "#ece4cb", "#f7f0dc", "#fff9ec", "#fffdf7"] },
-      "white": { "role": "neutral", "displayName": "White", "canonical": "#ffffff", "tonalRamp": ["#222222", "#555555", "#888888", "#bbbbbb", "#dddddd", "#eeeeee", "#f7f7f7", "#ffffff"] },
-      "ink-soft": { "role": "neutral", "displayName": "Soft Ink", "canonical": "navy 80% over cream (#416181)", "tonalRamp": ["#101f2e", "#1e3347", "#2d4863", "#416181", "#6a849c", "#93a6b9", "#bfcbd6", "#e3e8ed"] },
-      "ink-faint": { "role": "neutral", "displayName": "Faint Ink", "canonical": "navy 72% over cream (#54708c)", "tonalRamp": ["#121e2a", "#24374a", "#3a5470", "#54708c", "#7a91a8", "#a1b2c3", "#c8d3dd", "#e6ebf0"] },
-      "lemon-wash": { "role": "neutral", "displayName": "Lemon Wash", "canonical": "lemon 28% over cream (#fff0c0)", "tonalRamp": ["#5c4a10", "#8a7122", "#b89c3a", "#dcc260", "#f2dd8f", "#fae9a8", "#fff0c0", "#fff8e0"] },
-      "sea-wash": { "role": "neutral", "displayName": "Sea Wash", "canonical": "cobalt 8% over cream (#ecece6)", "tonalRamp": ["#2e2e2b", "#555550", "#7d7d76", "#a4a49c", "#c4c4bc", "#dadad3", "#ecece6", "#f6f6f2"] },
-      "cream-2": { "role": "neutral", "displayName": "Pale Cobalt Wash", "canonical": "cobalt 9% over white (#eaf0f7)", "tonalRamp": ["#1f2a36", "#3b4c5f", "#5d7289", "#8499b0", "#a9bacb", "#c6d3e0", "#eaf0f7", "#f5f8fb"] }
+      "navy": {
+        "role": "primary",
+        "displayName": "Mediterranean Navy",
+        "canonical": "#123b66",
+        "tonalRamp": [
+          "#04101c",
+          "#081f36",
+          "#123b66",
+          "#2f5b8c",
+          "#5d82ab",
+          "#8eaac7",
+          "#c0d0e1",
+          "#e6edf4"
+        ]
+      },
+      "cobalt": {
+        "role": "primary",
+        "displayName": "Glazed Cobalt",
+        "canonical": "#155ca2",
+        "tonalRamp": [
+          "#051a30",
+          "#0a2f55",
+          "#155ca2",
+          "#3a7fc4",
+          "#6aa1d6",
+          "#9bc0e5",
+          "#c8dcf0",
+          "#e8f0f8"
+        ]
+      },
+      "lemon": {
+        "role": "secondary",
+        "displayName": "Amalfi Lemon",
+        "canonical": "#ffd84d",
+        "tonalRamp": [
+          "#5c4700",
+          "#8f6e00",
+          "#c9a000",
+          "#ffd84d",
+          "#ffe17a",
+          "#ffe99f",
+          "#fff2c4",
+          "#fff9e3"
+        ]
+      },
+      "leaf": {
+        "role": "tertiary",
+        "displayName": "Leaf",
+        "canonical": "#577a50",
+        "tonalRamp": [
+          "#14200f",
+          "#243a1f",
+          "#3b5535",
+          "#577a50",
+          "#789a71",
+          "#9db899",
+          "#c5d6c2",
+          "#e5eee3"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Cream",
+        "canonical": "#fff9ec",
+        "tonalRamp": [
+          "#5c574c",
+          "#8a8473",
+          "#b8b09a",
+          "#d9d0b8",
+          "#ece4cb",
+          "#f7f0dc",
+          "#fff9ec",
+          "#fffdf7"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#222222",
+          "#555555",
+          "#888888",
+          "#bbbbbb",
+          "#dddddd",
+          "#eeeeee",
+          "#f7f7f7",
+          "#ffffff"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "navy 80% over cream (#416181)",
+        "tonalRamp": [
+          "#101f2e",
+          "#1e3347",
+          "#2d4863",
+          "#416181",
+          "#6a849c",
+          "#93a6b9",
+          "#bfcbd6",
+          "#e3e8ed"
+        ]
+      },
+      "ink-faint": {
+        "role": "neutral",
+        "displayName": "Faint Ink",
+        "canonical": "navy 72% over cream (#54708c)",
+        "tonalRamp": [
+          "#121e2a",
+          "#24374a",
+          "#3a5470",
+          "#54708c",
+          "#7a91a8",
+          "#a1b2c3",
+          "#c8d3dd",
+          "#e6ebf0"
+        ]
+      },
+      "lemon-wash": {
+        "role": "neutral",
+        "displayName": "Lemon Wash",
+        "canonical": "lemon 28% over cream (#fff0c0)",
+        "tonalRamp": [
+          "#5c4a10",
+          "#8a7122",
+          "#b89c3a",
+          "#dcc260",
+          "#f2dd8f",
+          "#fae9a8",
+          "#fff0c0",
+          "#fff8e0"
+        ]
+      },
+      "sea-wash": {
+        "role": "neutral",
+        "displayName": "Sea Wash",
+        "canonical": "cobalt 8% over cream (#ecece6)",
+        "tonalRamp": [
+          "#2e2e2b",
+          "#555550",
+          "#7d7d76",
+          "#a4a49c",
+          "#c4c4bc",
+          "#dadad3",
+          "#ecece6",
+          "#f6f6f2"
+        ]
+      },
+      "cream-2": {
+        "role": "neutral",
+        "displayName": "Pale Mediterranean Blue",
+        "canonical": "cobalt 11% over white (#e5edf5)",
+        "tonalRamp": [
+          "#1f2a36",
+          "#3b4c5f",
+          "#5d7289",
+          "#8499b0",
+          "#a9bacb",
+          "#c6d3e0",
+          "#e5edf5",
+          "#f4f8fb"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "The single H1 per page in Bodoni Moda 500." },
-      "headline": { "displayName": "Headline", "purpose": "H2 section titles." },
-      "title": { "displayName": "Title", "purpose": "H3, flavour and ingredient names, addresses." },
-      "body": { "displayName": "Body", "purpose": "DM Sans paragraphs, 66ch measure." },
-      "lede": { "displayName": "Lede", "purpose": "Intro sentence under a page title, 52ch." },
-      "label": { "displayName": "Label", "purpose": "Small buttons, tabs, captions." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "The single H1 per page in Bodoni Moda 500."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "H2 section titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "H3, flavour and ingredient names, addresses."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "DM Sans paragraphs, 66ch measure."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Intro sentence under a page title, 52ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Small buttons, tabs, captions."
+      }
     },
     "shadows": [
-      { "name": "sticker", "value": "drop-shadow(0 8px 14px color-mix(in srgb, #123b66 22%, transparent))", "purpose": "Tilted tiles, seal and sprigs." },
-      { "name": "print", "value": "0 18px 30px -18px color-mix(in srgb, #123b66 45%, transparent)", "purpose": "Collage photographs and note cards." },
-      { "name": "plate-rim", "value": "0 0 0 4px #fff9ec, 0 0 0 6px #155ca2", "purpose": "Ring layers on menu plates." },
-      { "name": "open-halo", "value": "0 0 0 4px color-mix(in srgb, #577a50 22%, transparent)", "purpose": "Open-now status dot." }
+      {
+        "name": "print",
+        "value": "0 18px 30px -18px color-mix(in srgb, #123b66 45%, transparent)",
+        "purpose": "Collage photographs and note cards."
+      },
+      {
+        "name": "open-halo",
+        "value": "0 0 0 4px color-mix(in srgb, #577a50 22%, transparent)",
+        "purpose": "Open-now status dot."
+      },
+      {
+        "name": "plaster-grain",
+        "value": "body::before plaster.webp 512px, mix-blend-mode multiply, opacity 0.4",
+        "purpose": "Whole-document texture overlay; not a shadow."
+      }
     ],
     "motion": [
-      { "name": "ease-out", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default easing for all transitions." },
-      { "name": "t-fast", "value": "160ms", "purpose": "Button, tab and colour changes." },
-      { "name": "t-med", "value": "320ms", "purpose": "Underline sweeps, arrow nudges, header border." },
-      { "name": "reveal", "value": "700ms translateY(18px) fade", "purpose": "Scroll reveal, disabled under reduced motion." }
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Default easing for all transitions."
+      },
+      {
+        "name": "t-fast",
+        "value": "160ms",
+        "purpose": "Button, tab and colour changes."
+      },
+      {
+        "name": "t-med",
+        "value": "320ms",
+        "purpose": "Underline sweeps, arrow nudges, header border."
+      },
+      {
+        "name": "reveal",
+        "value": "700ms translateY(18px) fade",
+        "purpose": "Scroll reveal, disabled under reduced motion."
+      }
     ],
     "breakpoints": [
-      { "name": "narrow", "value": "36rem" },
-      { "name": "small", "value": "40rem" },
-      { "name": "split", "value": "62rem" }
+      {
+        "name": "narrow",
+        "value": "36rem"
+      },
+      {
+        "name": "small",
+        "value": "40rem"
+      },
+      {
+        "name": "split",
+        "value": "62rem"
+      }
+    ],
+    "art": [
+      {
+        "name": "tile-lemons / tile-rosette / tile-fleur",
+        "purpose": "Painted majolica tiles: corners of art, tile walls, page-head cluster."
+      },
+      {
+        "name": "medallion-round / medallion-square",
+        "purpose": "Painted medallions at hero, scrap, gallery."
+      },
+      {
+        "name": "branch-a / branch-b",
+        "purpose": "Lemon branches overhanging the hero and lemon frame."
+      },
+      {
+        "name": "band.webp",
+        "purpose": "Painted border band (.ceramic-band)."
+      },
+      {
+        "name": "plate-rim.webp",
+        "purpose": "Painted rim overlay on flavour and menu plates."
+      },
+      {
+        "name": "frame.webp",
+        "purpose": "9-slice border-image for .frame / .ornate."
+      },
+      {
+        "name": "plaster.webp",
+        "purpose": "Document grain texture."
+      }
     ]
   },
   "components": [
@@ -76,20 +314,20 @@
       "css": ".ds-chip{display:inline-block;padding:.15rem .7rem;border-radius:99px;background:#ffd84d;color:#123b66;font:600 .75rem 'DM Sans',system-ui,sans-serif;letter-spacing:.02em}"
     },
     {
-      "name": "Ceramic Frame",
+      "name": "Ornate Frame",
       "kind": "card",
       "refersTo": "frame-photo",
-      "description": "Navy outer line and cobalt inner line around a photograph.",
+      "description": "Painted 9-slice image border around a photograph.",
       "html": "<div class=\"ds-frame\"><div class=\"ds-frame-img\"></div></div>",
-      "css": ".ds-frame{position:relative;width:16rem;padding:.7rem;border:5px solid #123b66;border-radius:1rem;background:#fff9ec}.ds-frame:before{content:'';position:absolute;inset:.26rem;border:2px solid #155ca2;border-radius:.7rem;pointer-events:none}.ds-frame-img{aspect-ratio:4/5;border-radius:.5rem;background:#fff0c0}"
+      "css": ".ds-frame{position:relative;width:16rem;border:2.8rem solid transparent;border-image:url('art/frame.webp') 100 / 2.8rem / 0 round;background:#fff9ec;background-clip:padding-box}.ds-frame-img{aspect-ratio:4/5;background:#fff0c0}"
     },
     {
       "name": "Flavour Plate",
       "kind": "card",
       "refersTo": "frame-photo",
-      "description": "Round photo disc with navy rim and white outer ring, name below.",
+      "description": "Round photo on a lemon-wash disc with a painted rim overlay, name below.",
       "html": "<div class=\"ds-plate\"><div class=\"ds-disc\"></div><p class=\"ds-name\">Limone di Amalfi</p></div>",
-      "css": ".ds-plate{display:grid;justify-items:center;gap:.6rem;text-align:center}.ds-disc{width:10rem;aspect-ratio:1;border:5px solid #123b66;border-radius:50%;background:#fff0c0;box-shadow:0 0 0 5px #fff;transition:transform 520ms cubic-bezier(.22,1,.36,1)}.ds-plate:hover .ds-disc{transform:rotate(-3deg) scale(1.025)}.ds-name{margin:0;font:500 1.5rem 'Bodoni Moda',Georgia,serif;color:#123b66}"
+      "css": ".ds-plate{display:grid;justify-items:center;gap:.6rem;text-align:center}.ds-disc{position:relative;width:10rem;aspect-ratio:1;background:radial-gradient(circle,#fff0c0 0 64%,transparent 65%);transition:transform 520ms cubic-bezier(.22,1,.36,1)}.ds-disc:after{content:'';position:absolute;inset:0;background:url('art/plate-rim.webp') center/100% 100% no-repeat}.ds-plate:hover .ds-disc{transform:rotate(-3deg) scale(1.025)}.ds-name{margin:0;font:500 1.5rem 'Bodoni Moda',Georgia,serif;color:#123b66}"
     },
     {
       "name": "Nav Link",
@@ -98,38 +336,84 @@
       "description": "Header link with a lemon underline bar.",
       "html": "<a class=\"ds-nav\" href=\"#\">Gelato</a>",
       "css": ".ds-nav{position:relative;display:inline-block;padding:.5rem 0;font:500 1rem 'DM Sans',system-ui,sans-serif;color:#123b66;text-decoration:none}.ds-nav:after{content:'';position:absolute;left:0;right:0;bottom:.1rem;height:3px;background:#ffd84d;transform:scaleX(0);transform-origin:left;transition:transform 320ms cubic-bezier(.22,1,.36,1)}.ds-nav:hover:after{transform:scaleX(1)}.ds-nav:focus-visible{outline:3px solid #155ca2;outline-offset:3px}"
+    },
+    {
+      "name": "Ceramic Band",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Painted border strip dividing sections.",
+      "html": "<div class=\"ds-band\"></div>",
+      "css": ".ds-band{height:3.5rem;background:url('art/band.webp') repeat-x center/auto 100%}"
+    },
+    {
+      "name": "Tile Wall",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Row of overlapped, slightly tilted painted tiles.",
+      "html": "<div class=\"ds-wall\"><img src=\"art/tile-lemons.webp\" alt=\"\"><img src=\"art/tile-rosette.webp\" alt=\"\"><img src=\"art/tile-fleur.webp\" alt=\"\"></div>",
+      "css": ".ds-wall{display:flex;justify-content:center;overflow:hidden}.ds-wall img{width:6rem;height:auto;margin-inline:-.2rem}.ds-wall img:nth-child(3n+1){transform:rotate(-1.2deg)}.ds-wall img:nth-child(3n+2){transform:rotate(.8deg)}.ds-wall img:nth-child(3n){transform:rotate(1.5deg)}"
     }
   ],
   "narrative": {
     "northStar": "The Majolica Counter",
-    "overview": "A modern editorial site on warm cream and white, where hand-painted majolica ceramic appears only as punctuation: a framed photograph, a tilted tile, a floral band between page and footer. Type is navy Bodoni Moda over DM Sans, with italic cobalt emphasis inside headings.",
+    "overview": "A modern editorial site on warm cream and white, dressed in hand-painted Amalfi majolica: lemon, rosette and fleur tiles, round and square medallions, lemon branches, a painted border band, a painted plate rim and an ornate photo frame. The painted art is the strongest identifier and the illustration layer; the brand logos stay flat vector. Type is navy Bodoni Moda over DM Sans, with italic cobalt emphasis inside headings. Sections breathe (4rem to 8rem vertical rhythm) and alternate between cream, white and a pale Mediterranean-blue wash, with one navy tile-wall break and a navy footer.\n\nThe system is rustic, ceramic and accent-rich, yet ordered: the whole document sits under a whitewashed-plaster grain (multiplied at 40%) so photographs, grounds and painted art read as one wall. Tiles are slightly rotated and sit at the corners of art, in tile walls (a laid row of tiles) or in a painted band; photographs sit in an ornate painted frame or on a painted-rim plate. Ornament frames and edges content; it is never wallpaper behind text.",
     "keyCharacteristics": [
-      "Cream (#fff9ec) ground, navy for type and anchoring bands, cobalt for links and emphasis, lemon in small doses.",
+      "Cream (#fff9ec) ground under plaster grain, navy for type and anchoring bands, cobalt for links and emphasis, lemon in small doses.",
+      "Painterly majolica (cobalt, soft blue, lemon, leaf, glaze white) as the illustration layer; flat vector for logos only.",
       "Bodoni Moda display with italic cobalt emphasis; DM Sans body.",
-      "Double-line ceramic frame (navy outer, cobalt inner) as the signature container.",
-      "Round plate rims, arched window, tilted tiles and seal.",
+      "Ornate painted frame (9-slice image border) as the signature photo container; arch window and painted-rim plates.",
+      "Tile walls in the navy break and footer; painted band above the footer and under each inner page header.",
       "Squared-off 0.7rem buttons that gain a lemon ring on hover.",
-      "Flat at rest; soft navy-tinted shadows only on sticker-like ceramic and collage pieces."
+      "Flat at rest; soft navy-tinted shadows only on collage prints and notes."
     ],
     "rules": [
-      { "name": "The Punctuation Rule", "body": "Lemon is a small accent, never a section ground. Ceramic ornament punctuates; it never tiles behind content except as a masked tint on navy.", "section": "colors" },
-      { "name": "The Navy Ink Rule", "body": "Text is navy (or its soft/faint derivations), never black or grey.", "section": "colors" },
-      { "name": "The Italic Cobalt Rule", "body": "Emphasis inside a heading is em: italic, weight 500, cobalt (lemon on navy). No bold emphasis in headings.", "section": "typography" },
-      { "name": "The Soft Sticker Rule", "body": "Shadows are blurred and navy-tinted. Hard offset shadows have no place here.", "section": "elevation" }
+      {
+        "name": "The Punctuation Rule",
+        "body": "Lemon is a small accent, never a section ground. Painted ornament frames, borders and sits beside content (corners of art, tile walls, bands); it never tiles behind text except as the masked wave tint on navy.",
+        "section": "colors"
+      },
+      {
+        "name": "The Painted Not Printed Rule",
+        "body": "Illustration is painterly majolica from design-assets/art (procedural SVG rendered to WebP). Flat brand-kit tile or border SVGs are not used on the page; logos alone stay flat vector.",
+        "section": "colors"
+      },
+      {
+        "name": "The Navy Ink Rule",
+        "body": "Text is navy (or its soft/faint derivations), never black or grey.",
+        "section": "colors"
+      },
+      {
+        "name": "The Italic Cobalt Rule",
+        "body": "Emphasis inside a heading is `em`: italic, weight 500, cobalt (lemon on navy). No bold emphasis in headings.",
+        "section": "typography"
+      },
+      {
+        "name": "The Soft Shadow Rule",
+        "body": "Shadows are blurred and navy-tinted. Hard offset shadows have no place here.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Wall Rule",
+        "body": "The grain covers everything equally; do not add per-section textures or second grain layers.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do set page ground to cream and alternate with white or the pale washes.",
-      "Do frame photographs in the navy and cobalt double-line frame, a plate, or the arch.",
-      "Do use Bodoni Moda with an italic cobalt em for headings and DM Sans for everything else.",
-      "Do keep lemon to small accents and use navy for dark sections and the footer.",
-      "Do keep content visible by default; reveal motion is enhancement only and honours reduced motion.",
-      "Do keep tap targets at least 2.5rem tall and focus rings always visible."
+      "**Do** set page ground to cream and alternate with white or the pale blue and sea washes.",
+      "**Do** frame photographs in the ornate painted frame, a rimmed plate, or the arch.",
+      "**Do** draw new ornament in the same painterly majolica language (cobalt family, lemon, leaf, glaze white) via design-assets/art and render to WebP; mark it .deco or aria-hidden.",
+      "**Do** use Bodoni Moda with an italic cobalt em for headings and DM Sans for everything else.",
+      "**Do** keep lemon to small accents and use navy for dark sections and the footer.",
+      "**Do** keep content visible by default; reveal motion is enhancement only and honours reduced motion.",
+      "**Do** keep tap targets at least 2.5rem tall and focus rings always visible."
     ],
     "donts": [
-      "Don't tile ceramic patterns behind content; the wave pattern appears only as a masked tint on navy.",
-      "Don't add cartoon lemons, Italian-restaurant clichés, or beige luxury tones.",
-      "Don't use black, grey or pure cream text on cream.",
-      "Don't use hard offset shadows; shadows stay soft and navy-tinted."
+      "**Don't** tile ceramic patterns behind text; the wave pattern appears only as a masked tint on navy.",
+      "**Don't** put flat brand-kit tile or border SVGs on the page, or paint logos in the majolica style.",
+      "**Don't** add cartoon lemons, Italian-restaurant clichés, or beige luxury tones; lemons are painted majolica.",
+      "**Don't** add a second texture or grain layer; the plaster grain is the one wall surface.",
+      "**Don't** use black, grey or pure cream text on cream.",
+      "**Don't** use hard offset shadows; shadows stay soft and navy-tinted."
     ]
   }
 }
