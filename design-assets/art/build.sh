@@ -19,4 +19,11 @@ for n in band frame plate-rim; do
 done
 cwebp -quiet -q 70 -alpha_q 70 -m 6 png/stucco.png -o "$ROOT/src/assets/art/stucco.webp"
 cwebp -quiet -q 80 -alpha_q 85 -m 6 png/ceramic.png -o "$ROOT/src/assets/art/ceramic.webp"
+# Provenance: embed the origin of every generated raster
+IMPECCABLE="${IMPECCABLE:-}"
+if [ -n "$IMPECCABLE" ]; then
+  for f in "$ROOT"/public/art/*.webp "$ROOT"/src/assets/art/*.webp; do
+    "$IMPECCABLE" embed-prompt "$f" --prompt "Origin: procedurally authored SVG artwork (design-assets/art), rendered with headless Chrome. No AI image generation." > /dev/null
+  done
+fi
 ls -la "$ROOT/public/art" "$ROOT/src/assets/art"
