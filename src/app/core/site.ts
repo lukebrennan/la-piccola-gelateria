@@ -11,7 +11,7 @@ export const SITE = {
    * Public origin + base path, no trailing slash. Used for canonical URLs, Open Graph and
    * structured data. Swap for the custom domain when it is live.
    */
-  url: 'https://lukebrennan.github.io/la-piccola-gelateria',
+  url: 'https://lapiccolagelateria.com',
   email: 'ciao@lapiccola.example',
   phone: '+39 089 000 0000',
   instagramHandle: '@lapiccolagelateria',
