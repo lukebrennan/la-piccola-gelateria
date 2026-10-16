@@ -1,7 +1,7 @@
 <lp-page-head [crumbs]="[{ name: 'Visit Us' }]">
-  <h1>Find us <em>in Amalfi.</em></h1>
+  <h1>Visit us</h1>
   <p class="lede">
-    A small counter on a narrow street, open every day until midnight. Come hungry, leave happy.
+    A small counter on a narrow street in Amalfi, open every day until midnight.
   </p>
 </lp-page-head>
 
@@ -37,7 +37,7 @@
 
 <section class="section ways" aria-labelledby="ways-h">
   <div class="container">
-    <h2 id="ways-h">Getting <em>here.</em></h2>
+    <h2 id="ways-h">Getting here</h2>
     <ul class="ways__list">
       @for (w of ways; track w.how) {
         <li lpReveal>
@@ -55,7 +55,7 @@
       <lp-photo [photo]="photos.beach" [ratio]="4 / 3" sizes="(min-width: 62rem) 40vw, 90vw" />
     </div>
     <div class="stack" lpReveal [lpReveal]="120">
-      <h2 id="nearby-h">While you are <em>here.</em></h2>
+      <h2 id="nearby-h">Nearby</h2>
       <ul class="near">
         @for (n of nearby; track n.name) {
           <li>
@@ -71,7 +71,7 @@
 
 <section class="section faq" aria-labelledby="faq-h">
   <div class="container container--narrow">
-    <h2 id="faq-h">Good <em>to know.</em></h2>
+    <h2 id="faq-h">Questions</h2>
     <div class="faq__list">
       @for (f of faq; track f.q) {
         <details>

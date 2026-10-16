@@ -30,7 +30,7 @@
 
   <section class="more section" aria-labelledby="more-h">
     <div class="container">
-      <h2 id="more-h">Keep <em>reading.</em></h2>
+      <h2 id="more-h">More to read</h2>
       <ul>
         @for (m of more(); track m.slug) {
           <li lpReveal>
@@ -46,7 +46,7 @@
   </section>
 } @else {
   <lp-page-head [crumbs]="[{ name: 'Journal', path: '/journal' }, { name: 'Not found' }]">
-    <h1>We could not find <em>that article.</em></h1>
+    <h1>We could not find that article</h1>
     <p class="lede">It may have moved. The full journal is just a tap away.</p>
     <a class="btn" routerLink="/journal">Back to the journal</a>
   </lp-page-head>

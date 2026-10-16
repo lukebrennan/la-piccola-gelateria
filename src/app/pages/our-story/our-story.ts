@@ -26,9 +26,9 @@ export class OurStory {
   ];
 
   protected readonly beliefs = [
-    { lead: 'Fresh beats fancy.', text: 'A simple recipe made this morning will always beat a clever one made last week.' },
-    { lead: 'Seasonal or not at all.', text: 'If the fruit is not at its best, the flavour is not on the counter.' },
-    { lead: 'Slow is a flavour.', text: 'A gentle churn and a patient rest give gelato its silk. We do not hurry it.' },
+    { lead: 'Made the same day', text: 'Everything on the counter was churned today, in batches small enough to finish before they go flat.' },
+    { lead: 'In season only', text: 'If the fruit is not good right now, that flavour waits until it is.' },
+    { lead: 'Churned slowly', text: 'A gentle churn and a long rest give gelato its texture. We do not rush either.' },
   ];
 
   constructor() {

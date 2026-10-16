@@ -31,9 +31,9 @@ export class Ingredients {
   protected readonly icon = ICON;
 
   protected readonly promises = [
-    { lead: 'Local first.', text: 'Milk, fruit and lemons from as close to the shop as they come.' },
-    { lead: 'Italian always.', text: 'When it cannot be local, it is from Italy, from people we know.' },
-    { lead: 'Seasonal only.', text: 'We stop making a flavour when its ingredient is no longer at its best.' },
+    { lead: 'Close to home', text: 'Milk, fruit and lemons come from as near the shop as we can get them.' },
+    { lead: 'Italian when not local', text: 'Pistachios, hazelnuts and chocolate come from Italy, from suppliers we know by name.' },
+    { lead: 'Only in season', text: 'When a fruit is past its best, we stop making that flavour until next year.' },
   ];
 
   constructor() {

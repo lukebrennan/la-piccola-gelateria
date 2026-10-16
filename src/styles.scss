@@ -162,13 +162,6 @@ h3 {
   font-size: var(--step-2);
   line-height: 1.2;
 }
-h1 em,
-h2 em,
-h3 em {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--cobalt);
-}
 p {
   margin: 0;
   text-wrap: pretty;
@@ -260,11 +253,6 @@ table {
 .dark {
   background: var(--navy);
   color: var(--cream);
-}
-.dark h1 em,
-.dark h2 em,
-.dark h3 em {
-  color: var(--lemon);
 }
 
 .lede {

@@ -10,7 +10,7 @@ import { Seo } from '../../core/seo';
     <section class="nf">
       <div class="container nf__inner">
         <img src="art/tile-lemons.webp" alt="" width="132" height="132" />
-        <h1>This page has <em>melted.</em></h1>
+        <h1>Page not found</h1>
         <p class="lede">
           We could not find what you were looking for. The gelato, at least, is exactly where we left
           it.

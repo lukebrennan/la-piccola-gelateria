@@ -9,7 +9,7 @@ import { PageHead } from '../../shared/page-head';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <lp-page-head [crumbs]="[{ name: 'Credits' }]">
-      <h1>Photo <em>credits.</em></h1>
+      <h1>Photo credits</h1>
       <p class="lede">
         La Piccola Gelateria is a fictional business, created as a web design and development
         portfolio project. Its imagery comes from the photographers below, shared freely on Unsplash.

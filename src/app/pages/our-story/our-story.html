@@ -1,8 +1,8 @@
 <lp-page-head [crumbs]="[{ name: 'Our Story' }]">
-  <h1>A small counter <em>with a long memory.</em></h1>
+  <h1>Our story</h1>
   <p class="lede">
-    Three generations of recipes, one narrow street in Amalfi and a rule we have never broken:
-    make it fresh, make it simple, make it slowly.
+    A small family gelateria on a narrow street in Amalfi. Everything is made fresh, with few
+    ingredients, and without hurrying.
   </p>
 </lp-page-head>
 
@@ -12,7 +12,7 @@
       <lp-photo [photo]="photos.cart" [ratio]="4 / 5" sizes="(min-width: 62rem) 40vw, 90vw" />
     </div>
     <div class="stack" lpReveal [lpReveal]="120">
-      <h2 id="began-h">It started <em>with a cart.</em></h2>
+      <h2 id="began-h">A cart on the seafront</h2>
       <div class="prose">
         <p>
           Long before there was a shop, there was a small painted cart on the seafront and a
@@ -31,7 +31,7 @@
 <section class="section notebook" aria-labelledby="notebook-h">
   <div class="container split split--rev">
     <div class="stack" lpReveal>
-      <h2 id="notebook-h">A notebook, <em>not a manual.</em></h2>
+      <h2 id="notebook-h">The recipe notebook</h2>
       <div class="prose">
         <p>
           Our recipes are short on purpose. Most fit on half a page: a handful of ingredients, a
@@ -58,7 +58,7 @@
 <section class="section morning" aria-labelledby="morning-h">
   <div class="container split">
     <div class="stack" lpReveal>
-      <h2 id="morning-h">Made fresh <em>every morning.</em></h2>
+      <h2 id="morning-h">A morning at the counter</h2>
       <ol class="day">
         @for (m of morning; track m.time) {
           <li>
@@ -76,7 +76,7 @@
 
 <section class="beliefs dark" aria-labelledby="beliefs-h">
   <div class="container">
-    <h2 id="beliefs-h">What we <em>believe.</em></h2>
+    <h2 id="beliefs-h">How we work</h2>
     <ul>
       @for (b of beliefs; track b.lead) {
         <li lpReveal>
@@ -90,7 +90,7 @@
 
 <section class="section close" aria-labelledby="close-h">
   <div class="container close__inner">
-    <h2 id="close-h">Come and say <em>ciao.</em></h2>
+    <h2 id="close-h">Come and see us</h2>
     <div class="close__actions">
       <a class="btn" routerLink="/visit-amalfi">Find Us</a>
       <a class="btn btn--ghost" routerLink="/gelato">See Our Gelato</a>

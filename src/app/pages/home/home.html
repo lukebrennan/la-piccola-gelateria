@@ -2,7 +2,7 @@
 <section class="hero" aria-labelledby="hero-h">
   <div class="container hero__grid">
     <div class="hero__copy">
-      <h1 id="hero-h">Gelato fatto <em>con amore.</em></h1>
+      <h1 id="hero-h">Gelato fatto con amore.</h1>
       <p class="lede">Artisan gelato made fresh every morning in the heart of Amalfi.</p>
       <div class="hero__actions">
         <a class="btn" routerLink="/gelato">
@@ -48,7 +48,7 @@
     </div>
 
     <div class="intro__copy" lpReveal [lpReveal]="120">
-      <h2 id="intro-h">A little taste <em>of Amalfi.</em></h2>
+      <h2 id="intro-h">Made in Amalfi, a few tubs at a time</h2>
       <div class="prose">
         <p>
           La Piccola Gelateria makes traditional Italian gelato in small batches, using fresh
@@ -66,7 +66,7 @@
 <section class="section flavours" aria-labelledby="flavours-h">
   <div class="container">
     <div class="head">
-      <h2 id="flavours-h">Six flavours <em>worth the walk.</em></h2>
+      <h2 id="flavours-h">Six flavours to start with</h2>
       <a class="btn btn--ghost" routerLink="/gelato" [queryParams]="{ today: 1 }">Today's Flavours</a>
     </div>
 
@@ -117,7 +117,7 @@
     </div>
 
     <div class="lemon__copy" lpReveal [lpReveal]="120">
-      <h2 id="lemon-h">The taste <em>of the coast.</em></h2>
+      <h2 id="lemon-h">Why we use Amalfi lemons</h2>
       <div class="prose">
         <p>
           Our signature sorbet starts with Amalfi lemons: long, fragrant and picked by hand on the
@@ -140,7 +140,7 @@
 <section class="section story" aria-labelledby="story-h">
   <div class="container story__grid">
     <div class="story__copy" lpReveal>
-      <h2 id="story-h">One small counter, <em>a lot of recipes.</em></h2>
+      <h2 id="story-h">A family counter on Via dei Limoni</h2>
       <div class="prose">
         <p>
           It began with a seafront cart and a notebook of family recipes. Today it is one small
@@ -169,7 +169,7 @@
 <section class="section ingredients" aria-labelledby="ing-h">
   <div class="container ingredients__grid">
     <div class="ingredients__list">
-      <h2 id="ing-h">Simple ingredients. <em>Incredible gelato.</em></h2>
+      <h2 id="ing-h">What goes into it</h2>
       <ul>
         @for (ing of ingredients; track ing.slug; let i = $index) {
           <li>
@@ -216,7 +216,7 @@
 <section class="break dark" aria-labelledby="break-h">
   <lp-tilewall class="break__wall" />
   <div class="container break__inner">
-    <h2 id="break-h">La <em>dolce vita,</em> one scoop at a time.</h2>
+    <h2 id="break-h">La dolce vita, one scoop at a time.</h2>
     <a class="btn btn--lemon" routerLink="/gelato" [queryParams]="{ today: 1 }">See what is on today</a>
   </div>
   <lp-tilewall class="break__wall" />
@@ -226,7 +226,7 @@
 <section class="section visit" aria-labelledby="visit-h">
   <div class="container visit__grid">
     <div class="visit__copy" lpReveal>
-      <h2 id="visit-h">Find us <em>in Amalfi.</em></h2>
+      <h2 id="visit-h">Find us in Amalfi</h2>
       <address class="visit__address">
         {{ site.address.street }}<br />
         {{ site.address.postcode }} {{ site.address.city }} {{ site.address.region }}<br />
@@ -256,7 +256,7 @@
   <img class="deco gallery__medal" src="art/medallion-round.webp" alt="" width="200" height="200" loading="lazy" />
   <div class="container">
     <div class="head">
-      <h2 id="gallery-h">Amalfi, <em>one frame at a time.</em></h2>
+      <h2 id="gallery-h">Around the shop</h2>
       <a class="link link--arrow" [href]="site.instagramUrl" target="_blank" rel="noopener">{{ site.instagramHandle }}</a>
     </div>
     <div class="mosaic">
@@ -274,7 +274,7 @@
 <section class="section journal" aria-labelledby="journal-h">
   <div class="container">
     <div class="head">
-      <h2 id="journal-h">From the <em>journal.</em></h2>
+      <h2 id="journal-h">From the journal</h2>
       <a class="link link--arrow" routerLink="/journal">All articles</a>
     </div>
     <ul class="posts">
