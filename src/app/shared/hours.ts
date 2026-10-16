@@ -62,7 +62,7 @@ import { WEEK } from '../core/site';
       }
       .is-today th,
       .is-today td {
-        background: var(--lemon-wash);
+        background-color: var(--lemon-wash);
         color: var(--ink);
         font-weight: 600;
       }
@@ -70,7 +70,7 @@ import { WEEK } from '../core/site';
         margin-left: 0.5rem;
         padding: 0.1rem 0.5rem;
         border-radius: 99px;
-        background: var(--navy);
+        background-color: var(--navy);
         color: var(--cream);
         font-size: 0.7rem;
         font-weight: 600;

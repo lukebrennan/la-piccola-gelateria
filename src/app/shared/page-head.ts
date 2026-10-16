@@ -42,7 +42,7 @@ export interface Crumb {
     `
       :host {
         display: block;
-        background: var(--cream);
+        background-color: var(--cream);
       }
       .head {
         display: grid;

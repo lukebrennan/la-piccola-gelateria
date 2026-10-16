@@ -3,7 +3,7 @@
 }
 
 .row--alt {
-  background: var(--cream-2);
+  background-color: var(--cream-2);
 }
 .media {
   width: 100%;
@@ -21,7 +21,7 @@
   place-items: center;
   aspect-ratio: 4 / 5;
   border-radius: 0.5rem;
-  background: var(--sea-wash);
+  background-color: var(--sea-wash);
 }
 .origin {
   display: flex;
@@ -57,7 +57,7 @@
     color var(--t-fast) var(--ease-out);
 }
 a.used__chip:hover {
-  background: var(--navy);
+  background-color: var(--navy);
   color: var(--cream);
 }
 

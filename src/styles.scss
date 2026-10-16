@@ -101,9 +101,10 @@ html {
 }
 
 body {
-  position: relative;
   margin: 0;
-  background: var(--cream);
+  background-color: var(--cream);
+  background-image: url('assets/art/stucco.webp');
+  background-size: 700px 700px;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--step-0);
@@ -112,24 +113,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
-}
-
-/* Whitewashed-plaster grain over everything, so photos and grounds feel like one wall */
-body::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background: url('assets/art/plaster.webp') 0 0 / 512px 512px;
-  mix-blend-mode: multiply;
-  opacity: 0.4;
-  pointer-events: none;
-}
-.header,
-.sheet,
-.skip-link {
-  /* keep the interface crisp above the grain */
-  isolation: isolate;
 }
 
 img,
@@ -227,7 +210,7 @@ table {
   left: 0.75rem;
   z-index: 200;
   padding: 0.75rem 1.25rem;
-  background: var(--navy);
+  background-color: var(--navy);
   color: var(--cream);
   border-radius: var(--radius);
   text-decoration: none;
@@ -251,7 +234,9 @@ table {
   padding-block: var(--section);
 }
 .dark {
-  background: var(--navy);
+  background-color: var(--navy);
+  background-image: url('assets/art/ceramic.webp');
+  background-size: 384px 384px;
   color: var(--cream);
 }
 
@@ -328,7 +313,7 @@ table {
   border-color: var(--navy);
 }
 .btn--ghost:hover {
-  background: var(--navy);
+  background-color: var(--navy);
   color: var(--cream);
 }
 .btn--cobalt {
@@ -347,7 +332,7 @@ table {
   border-color: color-mix(in srgb, var(--cream) 70%, transparent);
 }
 .btn--ghost-light:hover {
-  background: var(--cream);
+  background-color: var(--cream);
   color: var(--navy);
 }
 .btn--sm {
@@ -419,7 +404,7 @@ table {
   position: relative;
   border: var(--frame-w) solid transparent;
   border-image: url('assets/art/frame.webp') 100 / var(--frame-w) / 0 round;
-  background: var(--cream);
+  background-color: var(--cream);
   background-clip: padding-box;
 }
 .frame > lp-photo {
@@ -468,4 +453,26 @@ table {
   .no-print {
     display: none !important;
   }
+}
+
+
+/* Textured grounds: trowelled stucco on light sections, glazed ceramic tiles on blue and navy.
+   Fills are set as background-color in components so these images show through. */
+.flavours,
+.visit,
+.journal,
+.lemon,
+.menu,
+.faq,
+.more,
+lp-page-head {
+  background-image: url('assets/art/stucco.webp');
+  background-size: 700px 700px;
+}
+.story,
+.notebook,
+.ways,
+.row--alt {
+  background-image: url('assets/art/ceramic.webp');
+  background-size: 384px 384px;
 }

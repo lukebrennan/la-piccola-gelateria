@@ -208,7 +208,7 @@
         "purpose": "Open-now status dot."
       },
       {
-        "name": "plaster-grain",
+        "name": "stucco-and-ceramic",
         "value": "body::before plaster.webp 512px, mix-blend-mode multiply, opacity 0.4",
         "purpose": "Whole-document texture overlay; not a shadow."
       }
@@ -356,9 +356,9 @@
   ],
   "narrative": {
     "northStar": "The Majolica Counter",
-    "overview": "A modern editorial site on warm cream and white, dressed in hand-painted Amalfi majolica: lemon, rosette and fleur tiles, round and square medallions, lemon branches, a painted border band, a painted plate rim and an ornate photo frame. The painted art is the strongest identifier and the illustration layer; the brand logos stay flat vector. Type is navy Bodoni Moda over DM Sans, with italic cobalt emphasis inside headings. Sections breathe (4rem to 8rem vertical rhythm) and alternate between cream, white and a pale Mediterranean-blue wash, with one navy tile-wall break and a navy footer.\n\nThe system is rustic, ceramic and accent-rich, yet ordered: the whole document sits under a whitewashed-plaster grain (multiplied at 40%) so photographs, grounds and painted art read as one wall. Tiles are slightly rotated and sit at the corners of art, in tile walls (a laid row of tiles) or in a painted band; photographs sit in an ornate painted frame or on a painted-rim plate. Ornament frames and edges content; it is never wallpaper behind text.",
+    "overview": "A modern editorial site on warm cream and white, dressed in hand-painted Amalfi majolica: lemon, rosette and fleur tiles, round and square medallions, lemon branches, a painted border band, a painted plate rim and an ornate photo frame. The painted art is the strongest identifier and the illustration layer; the brand logos stay flat vector. Type is navy Bodoni Moda over DM Sans, with italic cobalt emphasis inside headings. Sections breathe (4rem to 8rem vertical rhythm) and alternate between cream, white and a pale Mediterranean-blue wash, with one navy tile-wall break and a navy footer.\n\nThe system is rustic, ceramic and accent-rich, yet ordered: the whole document sits under a whitewashed-stucco and ceramic textures (multiplied at 40%) so photographs, grounds and painted art read as one wall. Tiles are slightly rotated and sit at the corners of art, in tile walls (a laid row of tiles) or in a painted band; photographs sit in an ornate painted frame or on a painted-rim plate. Ornament frames and edges content; it is never wallpaper behind text.",
     "keyCharacteristics": [
-      "Cream (#fff9ec) ground under plaster grain, navy for type and anchoring bands, cobalt for links and emphasis, lemon in small doses.",
+      "Cream (#fff9ec) ground under stucco and ceramic textures, navy for type and anchoring bands, cobalt for links and emphasis, lemon in small doses.",
       "Painterly majolica (cobalt, soft blue, lemon, leaf, glaze white) as the illustration layer; flat vector for logos only.",
       "Bodoni Moda display with italic cobalt emphasis; DM Sans body.",
       "Ornate painted frame (9-slice image border) as the signature photo container; arch window and painted-rim plates.",
@@ -411,7 +411,7 @@
       "**Don't** tile ceramic patterns behind text; the wave pattern appears only as a masked tint on navy.",
       "**Don't** put flat brand-kit tile or border SVGs on the page, or paint logos in the majolica style.",
       "**Don't** add cartoon lemons, Italian-restaurant clichés, or beige luxury tones; lemons are painted majolica.",
-      "**Don't** add a second texture or grain layer; the plaster grain is the one wall surface.",
+      "**Don't** add a second texture or grain layer; the stucco and ceramic textures is the one wall surface.",
       "**Don't** use black, grey or pure cream text on cream.",
       "**Don't** use hard offset shadows; shadows stay soft and navy-tinted."
     ]

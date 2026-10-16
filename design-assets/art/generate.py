@@ -323,7 +323,74 @@ def plaster():
             '</svg>')
 
 
+def stucco():
+    """Seamless trowelled-stucco relief as a transparent overlay: white highlights and warm shadows."""
+    W = 768
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{W}" viewBox="0 0 {W} {W}">'
+            '<defs><filter id="st" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">'
+            '<feTurbulence type="fractalNoise" baseFrequency="0.0045 0.016" numOctaves="3" seed="5" stitchTiles="stitch" result="sweep"/>'
+            '<feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" seed="12" stitchTiles="stitch" result="grain"/>'
+            '<feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="3" seed="21" stitchTiles="stitch" result="blot"/>'
+            '<feColorMatrix in="sweep" type="matrix" values="1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 0 1" result="g1"/>'
+            '<feColorMatrix in="grain" type="matrix" values="1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 0 1" result="g2"/>'
+            '<feColorMatrix in="blot" type="matrix" values="1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 0 1" result="g3"/>'
+            '<feComposite in="g1" in2="g2" operator="arithmetic" k1="0" k2="0.55" k3="0.45" k4="0" result="h1"/>'
+            '<feComposite in="h1" in2="g3" operator="arithmetic" k1="0" k2="0.8" k3="0.2" k4="0" result="height"/>'
+            '<feConvolveMatrix in="height" order="3" kernelMatrix="-1 -1 0  -1 0 1  0 1 1" divisor="0.5" bias="0.5" edgeMode="wrap" preserveAlpha="true" result="emb"/>'
+            '<feColorMatrix in="emb" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  4 0 0 0 -2" result="hi0"/>'
+            '<feColorMatrix in="emb" type="matrix" values="0 0 0 0 0.42  0 0 0 0 0.31  0 0 0 0 0.18  -4 0 0 0 2" result="lo0"/>'
+            '<feComponentTransfer in="hi0" result="hi"><feFuncA type="linear" slope="0.2"/></feComponentTransfer>'
+            '<feComponentTransfer in="lo0" result="lo"><feFuncA type="linear" slope="0.13"/></feComponentTransfer>'
+            '<feMerge><feMergeNode in="lo"/><feMergeNode in="hi"/></feMerge></filter></defs>'
+            f'<rect width="{W}" height="{W}" filter="url(#st)"/></svg>')
+
+
+def ceramic():
+    """Seamless glazed-tile wall as a transparent overlay: grout, per-tile glaze variation, crazing."""
+    W, T = 512, 128
+    r = random.Random(14)
+    body = ''
+    for i in range(4):
+        for j in range(4):
+            x, y = i * T, j * T
+            hi = r.uniform(0.0, 0.14)
+            lo = r.uniform(0.0, 0.07)
+            body += f'<rect x="{x + 3}" y="{y + 3}" width="{T - 6}" height="{T - 6}" rx="5" fill="#fff" opacity="{hi:.3f}"/>'
+            body += f'<rect x="{x + 3}" y="{y + 3}" width="{T - 6}" height="{T - 6}" rx="5" fill="#2a2418" opacity="{lo:.3f}"/>'
+            # glaze sheen: soft highlight in the upper-left of each tile, shade lower-right
+            body += (f'<rect x="{x + 3}" y="{y + 3}" width="{T - 6}" height="{T - 6}" rx="5" fill="url(#sheen)" '
+                     f'transform="translate({r.uniform(-6, 6):.1f} {r.uniform(-6, 6):.1f})"/>')
+            # crazing
+            for _ in range(r.randint(1, 3)):
+                px, py = x + r.uniform(14, T - 14), y + r.uniform(14, T - 14)
+                pts = [(px, py)]
+                for _ in range(r.randint(2, 4)):
+                    px += r.uniform(-22, 22)
+                    py += r.uniform(-22, 22)
+                    px = min(max(px, x + 8), x + T - 8)
+                    py = min(max(py, y + 8), y + T - 8)
+                    pts.append((px, py))
+                body += ('<path d="M' + ' L'.join(f'{a:.1f} {b:.1f}' for a, b in pts)
+                         + '" fill="none" stroke="#5a4526" stroke-width=".7" opacity=".22" stroke-linecap="round"/>')
+    grout = ''
+    for k in range(5):
+        v = k * T
+        grout += f'<rect x="{v - 2.5}" y="0" width="5" height="{W}" fill="#4a3a1e" opacity=".15"/>'
+        grout += f'<rect x="0" y="{v - 2.5}" width="{W}" height="5" fill="#4a3a1e" opacity=".15"/>'
+        grout += f'<rect x="{v + 2.5}" y="0" width="1.4" height="{W}" fill="#fff" opacity=".5"/>'
+        grout += f'<rect x="0" y="{v + 2.5}" width="{W}" height="1.4" fill="#fff" opacity=".5"/>'
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{W}" viewBox="0 0 {W} {W}">'
+            '<defs><linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">'
+            '<stop offset="0" stop-color="#fff" stop-opacity=".34"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/>'
+            '<stop offset="1" stop-color="#2a2418" stop-opacity=".16"/></linearGradient>'
+            '<filter id="orange" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="6" stitchTiles="stitch"/>'
+            '<feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.6 0 0 0 -0.8"/></filter></defs>'
+            f'<g opacity=".62">{body}{grout}</g><rect width="{W}" height="{W}" filter="url(#orange)" opacity=".4"/></svg>')
+
+
 ART = {
+    'stucco': stucco,
+    'ceramic': ceramic,
     'tile-lemons': tile_lemons,
     'tile-rosette': tile_rosette,
     'tile-fleur': tile_fleur,

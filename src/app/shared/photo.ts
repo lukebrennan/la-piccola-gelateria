@@ -25,7 +25,7 @@ import { Photo } from '../core/photos';
         display: block;
         position: relative;
         overflow: hidden;
-        background: var(--cream-2);
+        background-color: var(--cream-2);
       }
       img {
         object-fit: cover;

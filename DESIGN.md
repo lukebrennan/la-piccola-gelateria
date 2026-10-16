@@ -1,6 +1,6 @@
 ---
 name: La Piccola Gelateria
-description: An artisan Amalfi gelateria on cream and white, held together by navy type and painterly Amalfi majolica artwork on a plaster-grain wall.
+description: An artisan Amalfi gelateria on cream and white, held together by navy type and painterly Amalfi majolica artwork on trowelled-stucco and glazed-tile grounds.
 colors:
   navy: "#123b66"
   cobalt: "#155ca2"
@@ -113,10 +113,10 @@ components:
 
 A modern editorial site on warm cream and white, dressed in hand-painted Amalfi majolica: lemon, rosette and fleur tiles, round and square medallions, lemon branches, a painted border band, a painted plate rim and an ornate photo frame. The painted art is the strongest identifier and the illustration layer; the brand logos stay flat vector. Type is navy Bodoni Moda over DM Sans, with italic cobalt emphasis inside headings. Sections breathe (4rem to 8rem vertical rhythm) and alternate between cream, white and a pale Mediterranean-blue wash, with one navy tile-wall break and a navy footer.
 
-The system is rustic, ceramic and accent-rich, yet ordered: the whole document sits under a whitewashed-plaster grain (multiplied at 40%) so photographs, grounds and painted art read as one wall. Tiles are slightly rotated and sit at the corners of art, in tile walls (a laid row of tiles) or in a painted band; photographs sit in an ornate painted frame or on a painted-rim plate. Ornament frames and edges content; it is never wallpaper behind text.
+The system is rustic, ceramic and accent-rich, yet ordered: light sections sit on a subtle trowelled-stucco relief and blue and navy sections on a glazed ceramic tile wall, so grounds feel like real surfaces while photographs stay clean. Tiles are slightly rotated and sit at the corners of art, in tile walls (a laid row of tiles) or in a painted band; photographs sit in an ornate painted frame or on a painted-rim plate. Ornament frames and edges content; it is never wallpaper behind text.
 
 **Key Characteristics:**
-- Cream (#fff9ec) ground under plaster grain, navy for type and anchoring bands, cobalt for links and emphasis, lemon in small doses.
+- Cream (#fff9ec) and white grounds carrying a stucco relief, navy for type and anchoring bands, cobalt for links and emphasis, lemon in small doses.
 - Painterly majolica (cobalt, soft blue, lemon, leaf, glaze white) as the illustration layer; flat vector for logos only.
 - Bodoni Moda display with italic cobalt emphasis; DM Sans body.
 - Ornate painted frame (9-slice image border) as the signature photo container; arch window and painted-rim plates.
@@ -182,11 +182,11 @@ Flat by default, with tonal alternation between cream, white and wash grounds fo
 ### Shadow Vocabulary
 - **Print** (`box-shadow: 0 18px 30px -18px navy 45%`): collage photographs, note cards (soft, offset downward, negative spread).
 - **Open dot halo** (`0 0 0 4px leaf 22%`).
-- **Plaster grain** (`body::before`, `mix-blend-mode: multiply`, opacity 0.4): a texture, not a shadow; sits above content, pointer-events none.
+- **Stucco** (`stucco.webp`, a transparent relief overlay of white highlights and warm shadows, 700px tile, set as the `background-image` of the body and the white and cream sections) and **Ceramic** (`ceramic.webp`, 4x4 glazed tiles with grout, glaze sheen and crazing, 384px tile, on `.dark` sections and the pale-blue story, notebook, ways and alternate-row sections): textures, not shadows. Photographs sit above them and stay untouched. Section fills must be `background-color` so the images show through.
 
 ### Named Rules
 **The Soft Shadow Rule.** Shadows are blurred and navy-tinted. Hard offset shadows have no place here.
-**The One Wall Rule.** The grain covers everything equally; do not add per-section textures or second grain layers.
+**The One Wall Rule.** Light grounds use stucco, blue and navy grounds use ceramic. Do not stack two textures on one surface or add a third texture.
 
 ## Shapes
 
@@ -247,7 +247,7 @@ Tiles, medallions and lemon branches (`.deco`, absolutely positioned, aria-hidde
 - **Don't** tile ceramic patterns behind text; the wave pattern appears only as a masked tint on navy.
 - **Don't** put flat brand-kit tile or border SVGs on the page, or paint logos in the majolica style.
 - **Don't** add cartoon lemons, Italian-restaurant clichés, or beige luxury tones; lemons are painted majolica.
-- **Don't** add a second texture or grain layer; the plaster grain is the one wall surface.
+- **Don't** put a texture over photographs, or stack stucco and ceramic on one surface; photos stay clean.
 - **Don't** use black, grey or pure cream text on cream.
 - **Don't** use hard offset shadows; shadows stay soft and navy-tinted.
 
@@ -255,5 +255,5 @@ Tiles, medallions and lemon branches (`.deco`, absolutely positioned, aria-hidde
 - The footer column headings are tracked uppercase small labels in lemon; a label-style device, not a pattern for new surfaces.
 - The "→" link arrow is a text glyph; new arrows should use inline SVG as the nav and buttons do.
 - The hero medallion runs an infinite sway animation, and chips and pills drop to 0.7rem to 0.75rem, below the label step.
-- The grain overlay sits at z-index 3 above page content (only header, sheet and skip link are isolated); it is a texture with no pointer events, but check text contrast and any new overlays against it.
+- Fills on textured sections must be `background-color`, never the `background` shorthand, or the stucco or ceramic image is reset. Check text contrast on any new textured ground.
 - Stale selectors remain in home.scss and app.scss (`.hero__seal`, `.lemon__sprig`, `.footer__sprig`) from the earlier art; hero art and the tile wall are not yet tuned for narrow screens beyond clamp sizing. Left unrepaired.

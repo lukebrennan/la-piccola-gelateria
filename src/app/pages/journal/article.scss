@@ -53,7 +53,7 @@
   padding: 1.5rem 1.75rem;
   border: 2px solid var(--navy);
   border-radius: 1rem;
-  background: var(--lemon-wash);
+  background-color: var(--lemon-wash);
 }
 .visit p {
   font-family: var(--font-display);
@@ -63,7 +63,7 @@
 }
 
 .more {
-  background: var(--white);
+  background-color: var(--white);
 }
 .more h2 {
   margin-bottom: clamp(1.5rem, 1rem + 2vw, 2.5rem);

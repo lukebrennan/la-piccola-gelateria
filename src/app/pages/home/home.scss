@@ -68,7 +68,7 @@
   padding: 0.7rem;
   border: 6px solid var(--navy);
   border-radius: 50% 50% 1.2rem 1.2rem / 38% 38% 1.2rem 1.2rem;
-  background: var(--cream);
+  background-color: var(--cream);
 }
 .arch::before {
   content: '';
@@ -177,7 +177,7 @@
 
 /* ----------------------------------------------------------- Flavours */
 .flavours {
-  background: var(--white);
+  background-color: var(--white);
 }
 .plates {
   display: grid;
@@ -251,7 +251,7 @@
 
 /* -------------------------------------------------------------- Lemon */
 .lemon {
-  background: var(--cream);
+  background-color: var(--cream);
   overflow-x: clip;
 }
 .lemon__grid {
@@ -340,7 +340,7 @@
 
 /* -------------------------------------------------------------- Story */
 .story {
-  background: var(--cream-2);
+  background-color: var(--cream-2);
 }
 .story__grid {
   display: grid;
@@ -377,7 +377,7 @@
   padding: 1.4rem 1.3rem 1.1rem;
   border: 2px solid var(--cobalt);
   border-radius: 0.3rem;
-  background: var(--cream);
+  background-color: var(--cream);
   outline: 1px solid var(--navy);
   outline-offset: -7px;
   transform: rotate(2.2deg);
@@ -473,7 +473,7 @@ li:last-child .ing {
   place-items: center;
   aspect-ratio: 4 / 5;
   border-radius: 0.5rem;
-  background: var(--sea-wash);
+  background-color: var(--sea-wash);
 }
 .ingredients__panel figcaption {
   display: flex;
@@ -496,15 +496,6 @@ li:last-child .ing {
   padding-block: clamp(1.25rem, 1rem + 1vw, 2rem);
   text-align: center;
 }
-.break::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--cobalt);
-  opacity: 0.32;
-  -webkit-mask: url('../../../assets/ceramic/mediterranean-waves-pattern.svg') center / 13rem auto;
-  mask: url('../../../assets/ceramic/mediterranean-waves-pattern.svg') center / 13rem auto;
-}
 .break__wall {
   position: relative;
 }
@@ -522,7 +513,7 @@ li:last-child .ing {
 
 /* -------------------------------------------------------------- Visit */
 .visit {
-  background: var(--white);
+  background-color: var(--white);
 }
 .visit__grid {
   display: grid;
@@ -600,7 +591,7 @@ li:last-child .ing {
 
 /* ------------------------------------------------------------ Journal */
 .journal {
-  background: var(--white);
+  background-color: var(--white);
 }
 .posts {
   display: grid;

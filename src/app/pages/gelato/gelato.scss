@@ -3,7 +3,7 @@
 }
 
 .menu {
-  background: var(--cream);
+  background-color: var(--cream);
 }
 
 /* Filter bar: sticks under the header while scrolling the menu */
@@ -55,7 +55,7 @@
   background: color-mix(in srgb, var(--navy) 8%, transparent);
 }
 .tab.is-active {
-  background: var(--navy);
+  background-color: var(--navy);
   color: var(--cream);
 }
 .today {
@@ -87,7 +87,7 @@
   background: var(--lemon);
 }
 .today.is-on .today__dot {
-  background: var(--navy);
+  background-color: var(--navy);
 }
 
 .intro {
@@ -128,7 +128,7 @@
   transition: background-color var(--t-med) var(--ease-out);
 }
 .item:target {
-  background: var(--lemon-wash);
+  background-color: var(--lemon-wash);
 }
 .item__plate {
   position: relative;
@@ -194,7 +194,7 @@
 }
 .chip--season {
   border-color: transparent;
-  background: var(--sea-wash);
+  background-color: var(--sea-wash);
   color: var(--cobalt);
 }
 .empty {
