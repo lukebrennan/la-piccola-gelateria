@@ -1,0 +1,125 @@
+:host {
+  display: block;
+}
+
+.split--top {
+  align-items: start;
+}
+.addr {
+  font-style: normal;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.3;
+}
+.addr strong {
+  font-weight: 500;
+  color: var(--cobalt);
+}
+.landmark {
+  max-width: 40ch;
+  color: var(--ink-soft);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.mail {
+  color: var(--ink-soft);
+}
+
+.ways {
+  background: var(--cream-2);
+}
+.ways h2 {
+  margin-bottom: clamp(2rem, 1.5rem + 3vw, 3.5rem);
+}
+.ways__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+.ways__list li {
+  padding-top: 1.1rem;
+  border-top: 2px solid var(--navy);
+}
+.ways__list h3 {
+  margin-bottom: 0.6rem;
+}
+.ways__list p {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.near {
+  display: grid;
+  gap: 1.1rem;
+  width: 100%;
+}
+.near li {
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+.near h3 {
+  font-size: var(--step-1);
+  margin-bottom: 0.25rem;
+}
+.near p {
+  color: var(--ink-soft);
+}
+
+.faq {
+  background: var(--white);
+}
+.faq h2 {
+  margin-bottom: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
+.faq__list {
+  border-bottom: 1px solid var(--line);
+}
+details {
+  border-top: 1px solid var(--line);
+}
+summary {
+  position: relative;
+  padding: 1.15rem 3rem 1.15rem 0.25rem;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: 1.3;
+  cursor: pointer;
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary::after {
+  content: '';
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 2px solid var(--navy);
+  border-bottom: 2px solid var(--navy);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform var(--t-med) var(--ease-out);
+}
+details[open] summary::after {
+  transform: translateY(-30%) rotate(225deg);
+}
+details p {
+  padding: 0 3rem 1.25rem 0.25rem;
+  max-width: 62ch;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 62rem) {
+  .ways__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 36rem) {
+  .ways__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

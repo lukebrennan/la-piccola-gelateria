@@ -1,0 +1,68 @@
+<lp-page-head [crumbs]="[{ name: 'Ingredients' }]">
+  <h1>Simple ingredients. <em>Incredible gelato.</em></h1>
+  <p class="lede">
+    Six ingredients do most of the work. Here is where they come from and what we make with them.
+  </p>
+</lp-page-head>
+
+@for (ing of items; track ing.slug; let i = $index) {
+  <section class="row section" [class.row--alt]="i % 2 === 1" [attr.aria-labelledby]="ing.slug">
+    <div class="container split" [class.split--rev]="i % 2 === 1">
+      <div class="frame media" lpReveal>
+        @if (ing.photo) {
+          <lp-photo [photo]="photos[ing.photo]" [ratio]="4 / 5" sizes="(min-width: 62rem) 40vw, 90vw" [alt]="ing.name" />
+        } @else {
+          <div class="tile">
+            <lp-icon [name]="icon[ing.slug]" [size]="132" />
+          </div>
+        }
+      </div>
+      <div class="stack" lpReveal [lpReveal]="120">
+        <h2 [id]="ing.slug">{{ ing.name }}</h2>
+        <p class="origin">
+          <img src="brand/icons/find-us.svg" alt="" width="22" height="22" loading="lazy" />
+          {{ ing.origin }}
+        </p>
+        <p class="prose">{{ ing.story }}</p>
+        <div class="used">
+          <p class="used__label">Find it in</p>
+          <ul>
+            @for (u of ing.used; track u) {
+              <li>
+                @if (slugFor(u); as s) {
+                  <a routerLink="/gelato" [fragment]="s" class="used__chip">{{ u }}</a>
+                } @else {
+                  <span class="used__chip">{{ u }}</span>
+                }
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+<section class="promise dark" aria-labelledby="promise-h">
+  <div class="container">
+    <h2 id="promise-h">Our <em>sourcing promise.</em></h2>
+    <ul>
+      @for (p of promises; track p.lead) {
+        <li lpReveal>
+          <h3>{{ p.lead }}</h3>
+          <p>{{ p.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section close" aria-labelledby="close-h">
+  <div class="container close__inner">
+    <h2 id="close-h">Taste the <em>difference.</em></h2>
+    <div class="close__actions">
+      <a class="btn" routerLink="/gelato">See Our Gelato</a>
+      <a class="btn btn--ghost" routerLink="/visit-amalfi">Find Us</a>
+    </div>
+  </div>
+</section>

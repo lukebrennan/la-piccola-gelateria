@@ -1,0 +1,84 @@
+<lp-page-head [crumbs]="[{ name: 'Visit Us' }]">
+  <h1>Find us <em>in Amalfi.</em></h1>
+  <p class="lede">
+    A small counter on a narrow street, open every day until midnight. Come hungry, leave happy.
+  </p>
+</lp-page-head>
+
+<section class="section" aria-labelledby="where-h">
+  <div class="container split split--top">
+    <div class="stack" lpReveal>
+      <h2 id="where-h" class="sr-only">Address and opening hours</h2>
+      <address class="addr">
+        <strong>{{ site.name }}</strong><br />
+        {{ site.address.street }}<br />
+        {{ site.address.postcode }} {{ site.address.city }} {{ site.address.region }}<br />
+        {{ site.address.country }}
+      </address>
+      <p class="landmark">{{ site.landmark }}</p>
+      <lp-hours />
+      <div class="actions">
+        <a class="btn" [href]="site.directionsUrl" target="_blank" rel="noopener">
+          Get Directions
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" /></svg>
+        </a>
+        <a class="btn btn--ghost" [href]="phoneHref">Call {{ site.phone }}</a>
+      </div>
+      <p class="mail">
+        Or write to
+        <a class="link" [href]="'mailto:' + site.email">{{ site.email }}</a>
+      </p>
+    </div>
+    <div class="aside" lpReveal [lpReveal]="120">
+      <lp-map />
+    </div>
+  </div>
+</section>
+
+<section class="section ways" aria-labelledby="ways-h">
+  <div class="container">
+    <h2 id="ways-h">Getting <em>here.</em></h2>
+    <ul class="ways__list">
+      @for (w of ways; track w.how) {
+        <li lpReveal>
+          <h3>{{ w.how }}</h3>
+          <p>{{ w.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section nearby" aria-labelledby="nearby-h">
+  <div class="container split">
+    <div class="frame" lpReveal>
+      <lp-photo [photo]="photos.beach" [ratio]="4 / 3" sizes="(min-width: 62rem) 40vw, 90vw" />
+    </div>
+    <div class="stack" lpReveal [lpReveal]="120">
+      <h2 id="nearby-h">While you are <em>here.</em></h2>
+      <ul class="near">
+        @for (n of nearby; track n.name) {
+          <li>
+            <h3>{{ n.name }}</h3>
+            <p>{{ n.note }}</p>
+          </li>
+        }
+      </ul>
+      <a class="link link--arrow" routerLink="/journal/food-lovers-guide-to-amalfi">Our food lover's guide to Amalfi</a>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" aria-labelledby="faq-h">
+  <div class="container container--narrow">
+    <h2 id="faq-h">Good <em>to know.</em></h2>
+    <div class="faq__list">
+      @for (f of faq; track f.q) {
+        <details>
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,288 @@
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <h1 id="hero-h">Gelato fatto <em>con amore.</em></h1>
+      <p class="lede">Artisan gelato made fresh every morning in the heart of Amalfi.</p>
+      <div class="hero__actions">
+        <a class="btn" routerLink="/gelato">
+          Explore Our Gelato
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" /></svg>
+        </a>
+        <a class="btn btn--ghost" routerLink="/visit-amalfi">Find Us</a>
+      </div>
+      <p class="hero__status">
+        <span class="dot" [class.is-open]="open() === true" aria-hidden="true"></span>
+        <span>{{ statusLabel() }}</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <a class="link" routerLink="/visit-amalfi">{{ site.address.street }}</a>
+      </p>
+    </div>
+
+    <div class="hero__art">
+      <div class="arch">
+        <lp-photo
+          class="arch__photo"
+          [photo]="photos.coneChocolate"
+          [ratio]="4 / 5"
+          sizes="(min-width: 62rem) 38vw, 88vw"
+          [priority]="true"
+        />
+      </div>
+      <img class="hero__seal" src="brand/logos/logo-round-seal-colour.svg" alt="" width="132" height="132" />
+      <img class="hero__tile" src="brand/tiles/majolica-lemon-tile.svg" alt="" width="96" height="96" />
+    </div>
+  </div>
+</section>
+
+<!-- Introduction -->
+<section class="section intro" aria-labelledby="intro-h">
+  <div class="container intro__grid">
+    <div class="collage" lpReveal>
+      <lp-photo class="collage__a" [photo]="photos.lemonSorbet" [ratio]="3 / 4" sizes="(min-width: 62rem) 26vw, 52vw" />
+      <lp-photo class="collage__b" [photo]="photos.fiveBowls" [ratio]="4 / 3" sizes="(min-width: 62rem) 24vw, 52vw" />
+      <lp-photo class="collage__c" [photo]="photos.street" [ratio]="1" sizes="(min-width: 62rem) 16vw, 34vw" />
+      <img class="collage__tile" src="brand/tiles/majolica-sea-and-sun-tile.svg" alt="" width="92" height="92" loading="lazy" />
+    </div>
+
+    <div class="intro__copy" lpReveal [lpReveal]="120">
+      <h2 id="intro-h">A little taste <em>of Amalfi.</em></h2>
+      <div class="prose">
+        <p>
+          La Piccola Gelateria makes traditional Italian gelato in small batches, using fresh
+          ingredients and the flavours of the coast. We churn all through the day, so what is on the
+          counter was made hours ago, not days.
+        </p>
+        <p class="aside">Small batches. Big Italian summers.</p>
+      </div>
+      <a class="link link--arrow" routerLink="/our-story">Read our story</a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured flavours -->
+<section class="section flavours" aria-labelledby="flavours-h">
+  <div class="container">
+    <div class="head">
+      <h2 id="flavours-h">Six flavours <em>worth the walk.</em></h2>
+      <a class="btn btn--ghost" routerLink="/gelato" [queryParams]="{ today: 1 }">Today's Flavours</a>
+    </div>
+
+    <ul class="plates">
+      @for (f of featured; track f.slug; let i = $index) {
+        <li class="plate" lpReveal [lpReveal]="(i % 3) * 90">
+          <a class="plate__link" routerLink="/gelato" [fragment]="f.slug">
+            <span class="plate__disc">
+              @if (f.photo) {
+                <lp-photo [photo]="photos[f.photo]" [ratio]="1" sizes="(min-width: 62rem) 22vw, 44vw" />
+              } @else {
+                <lp-icon [name]="f.icon" [size]="84" />
+              }
+            </span>
+            <span class="plate__name">{{ f.name }}</span>
+            <span class="plate__desc">{{ f.description }}</span>
+            @if (f.diet.length) {
+              <span class="plate__chip">{{ f.diet[0] }}</span>
+            }
+          </a>
+        </li>
+      }
+    </ul>
+    <p class="flavours__note">Freshly churned. Best enjoyed slowly.</p>
+  </div>
+</section>
+
+<!-- Amalfi lemon -->
+<section class="lemon" aria-labelledby="lemon-h">
+  <div class="ceramic-band" aria-hidden="true"></div>
+  <div class="container lemon__grid">
+    <div class="lemon__art" lpReveal>
+      <div class="lemon__block" aria-hidden="true"></div>
+      <lp-photo
+        class="lemon__photo"
+        [class.parallax]="true"
+        [photo]="photos.lemonGrove"
+        [ratio]="4 / 5"
+        sizes="(min-width: 62rem) 40vw, 88vw"
+      />
+      <img class="lemon__sprig" src="brand/ceramic/amalfi-lemon-sprig-transparent.svg" alt="" width="170" height="100" loading="lazy" />
+    </div>
+
+    <div class="lemon__copy" lpReveal [lpReveal]="120">
+      <h2 id="lemon-h">The taste <em>of the coast.</em></h2>
+      <div class="prose">
+        <p>
+          Our signature sorbet starts with Amalfi lemons: long, fragrant and picked by hand on the
+          terraces above the sea. We use the zest as well as the juice, so it smells like the
+          grove before it tastes of anything.
+        </p>
+      </div>
+      <ul class="facts">
+        <li>Sfusato Amalfitano, thick-skinned and aromatic</li>
+        <li>Grown on cliffside terraces under chestnut pergolas</li>
+        <li>Lemon, sugar and water. Nothing else.</li>
+      </ul>
+      <a class="btn" routerLink="/gelato" fragment="limone-di-amalfi">Taste the lemon sorbet</a>
+    </div>
+  </div>
+  <div class="ceramic-band" aria-hidden="true"></div>
+</section>
+
+<!-- Our story -->
+<section class="section story" aria-labelledby="story-h">
+  <div class="container story__grid">
+    <div class="story__copy" lpReveal>
+      <h2 id="story-h">One small counter, <em>a lot of recipes.</em></h2>
+      <div class="prose">
+        <p>
+          It began with a seafront cart and a notebook of family recipes. Today it is one small
+          counter, a few steady hands and the same rule as ever: make it fresh, make it simple, make
+          it slowly.
+        </p>
+      </div>
+      <a class="link link--arrow" routerLink="/our-story">Meet the family</a>
+    </div>
+
+    <div class="scrap" lpReveal [lpReveal]="120">
+      <lp-photo class="scrap__photo" [photo]="photos.cart" [ratio]="3 / 4" sizes="(min-width: 62rem) 24vw, 46vw" />
+      <figure class="scrap__note">
+        <blockquote>
+          <p>Taste it warm. Taste it twice. Never hurry the churn.</p>
+        </blockquote>
+        <figcaption>From the recipe notebook</figcaption>
+      </figure>
+      <lp-photo class="scrap__tiles" [photo]="photos.ceramics" [ratio]="1" sizes="(min-width: 62rem) 16vw, 34vw" />
+      <img class="scrap__tile" src="brand/tiles/majolica-diamond-tile.svg" alt="" width="84" height="84" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- Ingredients -->
+<section class="section ingredients" aria-labelledby="ing-h">
+  <div class="container ingredients__grid">
+    <div class="ingredients__list">
+      <h2 id="ing-h">Simple ingredients. <em>Incredible gelato.</em></h2>
+      <ul>
+        @for (ing of ingredients; track ing.slug; let i = $index) {
+          <li>
+            <button
+              type="button"
+              class="ing"
+              [class.is-active]="activeIngredient() === i"
+              [attr.aria-pressed]="activeIngredient() === i"
+              (mouseenter)="setIngredient(i)"
+              (focus)="setIngredient(i)"
+              (click)="setIngredient(i)"
+            >
+              <lp-icon [name]="ingredientIcon[ing.slug]" [size]="38" />
+              <span class="ing__text">
+                <span class="ing__name">{{ ing.name }}</span>
+                <span class="ing__short">{{ ing.short }}</span>
+              </span>
+            </button>
+          </li>
+        }
+      </ul>
+      <a class="link link--arrow" routerLink="/ingredients">See where it all comes from</a>
+    </div>
+
+    <figure class="ingredients__panel" aria-live="polite">
+      <div class="panel__frame">
+        @if (activeIng().photo; as key) {
+          <lp-photo [photo]="photos[key]" [ratio]="4 / 5" sizes="(min-width: 62rem) 36vw, 90vw" [alt]="activeIng().name" />
+        } @else {
+          <div class="panel__tile">
+            <lp-icon [name]="ingredientIcon[activeIng().slug]" [size]="120" />
+          </div>
+        }
+      </div>
+      <figcaption>
+        <strong>{{ activeIng().name }}</strong>
+        <span>{{ activeIng().origin }}</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Atmospheric break -->
+<section class="break dark" aria-labelledby="break-h">
+  <div class="container break__inner">
+    <h2 id="break-h">La <em>dolce vita,</em> one scoop at a time.</h2>
+    <div class="break__tiles" aria-hidden="true">
+      <img src="brand/tiles/majolica-lemon-tile.svg" alt="" width="120" height="120" loading="lazy" />
+      <img src="brand/tiles/majolica-flower-tile.svg" alt="" width="120" height="120" loading="lazy" />
+      <img src="brand/tiles/majolica-diamond-tile.svg" alt="" width="120" height="120" loading="lazy" />
+      <img src="brand/tiles/majolica-sea-and-sun-tile.svg" alt="" width="120" height="120" loading="lazy" />
+    </div>
+    <a class="btn btn--lemon" routerLink="/gelato" [queryParams]="{ today: 1 }">See what is on today</a>
+  </div>
+</section>
+
+<!-- Visit -->
+<section class="section visit" aria-labelledby="visit-h">
+  <div class="container visit__grid">
+    <div class="visit__copy" lpReveal>
+      <h2 id="visit-h">Find us <em>in Amalfi.</em></h2>
+      <address class="visit__address">
+        {{ site.address.street }}<br />
+        {{ site.address.postcode }} {{ site.address.city }} {{ site.address.region }}<br />
+        {{ site.address.country }}
+      </address>
+      <p class="visit__landmark">{{ site.landmark }}</p>
+
+      <lp-hours class="hours" />
+
+      <div class="visit__actions">
+        <a class="btn" [href]="site.directionsUrl" target="_blank" rel="noopener">
+          Get Directions
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" /></svg>
+        </a>
+        <a class="btn btn--ghost" [href]="'tel:' + site.phone.split(' ').join('')">Call {{ site.phone }}</a>
+      </div>
+    </div>
+
+    <div class="visit__map" lpReveal [lpReveal]="120">
+      <lp-map />
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="section gallery" aria-labelledby="gallery-h">
+  <div class="container">
+    <div class="head">
+      <h2 id="gallery-h">Amalfi, <em>one frame at a time.</em></h2>
+      <a class="link link--arrow" [href]="site.instagramUrl" target="_blank" rel="noopener">{{ site.instagramHandle }}</a>
+    </div>
+    <div class="mosaic">
+      <lp-photo class="m m--1" [photo]="photos.outside" [ratio]="3 / 2" sizes="(min-width: 62rem) 40vw, 60vw" />
+      <lp-photo class="m m--2" [photo]="photos.stairs" [ratio]="2 / 3" sizes="(min-width: 62rem) 20vw, 40vw" />
+      <lp-photo class="m m--3" [photo]="photos.ravello" [ratio]="3 / 4" sizes="(min-width: 62rem) 20vw, 40vw" />
+      <lp-photo class="m m--4" [photo]="photos.displayCounter" [ratio]="3 / 2" sizes="(min-width: 62rem) 40vw, 60vw" />
+      <lp-photo class="m m--5" [photo]="photos.beach" [ratio]="3 / 4" sizes="(min-width: 62rem) 20vw, 40vw" />
+      <lp-photo class="m m--6" [photo]="photos.lemonsLeaves" [ratio]="1" sizes="(min-width: 62rem) 20vw, 40vw" />
+    </div>
+  </div>
+</section>
+
+<!-- Journal -->
+<section class="section journal" aria-labelledby="journal-h">
+  <div class="container">
+    <div class="head">
+      <h2 id="journal-h">From the <em>journal.</em></h2>
+      <a class="link link--arrow" routerLink="/journal">All articles</a>
+    </div>
+    <ul class="posts">
+      @for (a of articles; track a.slug; let i = $index) {
+        <li class="post" [class.post--lead]="i === 0" lpReveal [lpReveal]="i * 90">
+          <a [routerLink]="route(a.slug)" class="post__link">
+            <lp-photo class="post__img" [photo]="photos[a.photo]" [ratio]="i === 0 ? 4 / 3 : 3 / 2" [sizes]="i === 0 ? '(min-width: 62rem) 50vw, 90vw' : '(min-width: 62rem) 26vw, 90vw'" />
+            <h3 class="post__title">{{ a.title }}</h3>
+            <span class="post__sum">{{ a.summary }}</span>
+            <span class="post__meta">{{ dateLabel(a.date) }} · {{ a.minutes }} min read</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,99 @@
+<lp-page-head [crumbs]="[{ name: 'Our Story' }]">
+  <h1>A small counter <em>with a long memory.</em></h1>
+  <p class="lede">
+    Three generations of recipes, one narrow street in Amalfi and a rule we have never broken:
+    make it fresh, make it simple, make it slowly.
+  </p>
+</lp-page-head>
+
+<section class="section" aria-labelledby="began-h">
+  <div class="container split">
+    <div class="frame" lpReveal>
+      <lp-photo [photo]="photos.cart" [ratio]="4 / 5" sizes="(min-width: 62rem) 40vw, 90vw" />
+    </div>
+    <div class="stack" lpReveal [lpReveal]="120">
+      <h2 id="began-h">It started <em>with a cart.</em></h2>
+      <div class="prose">
+        <p>
+          Long before there was a shop, there was a small painted cart on the seafront and a
+          notebook of family recipes. Summers on the Amalfi Coast taught us two things: people want
+          something cold and honest, and the best flavours are the ones that taste of where you are.
+        </p>
+        <p>
+          The cart became a counter on Via dei Limoni. The notebook is still on the shelf, a little
+          stained with lemon, and we still check it before every new flavour.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section notebook" aria-labelledby="notebook-h">
+  <div class="container split split--rev">
+    <div class="stack" lpReveal>
+      <h2 id="notebook-h">A notebook, <em>not a manual.</em></h2>
+      <div class="prose">
+        <p>
+          Our recipes are short on purpose. Most fit on half a page: a handful of ingredients, a
+          temperature and a note in the margin. The margin is where the good advice lives.
+        </p>
+        <p>
+          Fruit in season, milk from nearby farms, nuts from the best groves we can find. We would
+          rather make six perfect flavours than twenty average ones, and the notebook agrees.
+        </p>
+      </div>
+      <figure class="note">
+        <blockquote><p>Taste it warm. Taste it twice. Never hurry the churn.</p></blockquote>
+        <figcaption>From the recipe notebook</figcaption>
+      </figure>
+    </div>
+    <div class="duo" lpReveal [lpReveal]="120">
+      <lp-photo class="duo__a" [photo]="photos.lemonSorbet" [ratio]="3 / 4" sizes="(min-width: 62rem) 26vw, 55vw" />
+      <lp-photo class="duo__b" [photo]="photos.ceramics" [ratio]="1" sizes="(min-width: 62rem) 18vw, 38vw" />
+      <img class="duo__tile" src="brand/tiles/majolica-diamond-tile.svg" alt="" width="88" height="88" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="section morning" aria-labelledby="morning-h">
+  <div class="container split">
+    <div class="stack" lpReveal>
+      <h2 id="morning-h">Made fresh <em>every morning.</em></h2>
+      <ol class="day">
+        @for (m of morning; track m.time) {
+          <li>
+            <span class="day__time">{{ m.time }}</span>
+            <span class="day__text">{{ m.text }}</span>
+          </li>
+        }
+      </ol>
+    </div>
+    <div class="frame" lpReveal [lpReveal]="120">
+      <lp-photo [photo]="photos.display" [ratio]="4 / 5" sizes="(min-width: 62rem) 38vw, 90vw" />
+    </div>
+  </div>
+</section>
+
+<section class="beliefs dark" aria-labelledby="beliefs-h">
+  <div class="container">
+    <h2 id="beliefs-h">What we <em>believe.</em></h2>
+    <ul>
+      @for (b of beliefs; track b.lead) {
+        <li lpReveal>
+          <h3>{{ b.lead }}</h3>
+          <p>{{ b.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section close" aria-labelledby="close-h">
+  <div class="container close__inner">
+    <h2 id="close-h">Come and say <em>ciao.</em></h2>
+    <div class="close__actions">
+      <a class="btn" routerLink="/visit-amalfi">Find Us</a>
+      <a class="btn btn--ghost" routerLink="/gelato">See Our Gelato</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,173 @@
+<a class="skip-link" href="#main" [attr.inert]="menuOpen() ? '' : null">Skip to content</a>
+
+<div class="announce" [attr.inert]="menuOpen() ? '' : null">
+  <p>{{ status() }}</p>
+</div>
+
+<header class="header" [class.is-scrolled]="scrolled()" [attr.inert]="menuOpen() ? '' : null">
+  <div class="container header__inner">
+    <a routerLink="/" class="brand" aria-label="La Piccola Gelateria, Amalfi. Home">
+      <img
+        src="brand/logos/logo-horizontal-colour.svg"
+        alt=""
+        width="210"
+        height="58"
+        fetchpriority="high"
+      />
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <ul>
+        @for (item of nav; track item.path) {
+          <li>
+            <a [routerLink]="item.path" routerLinkActive="is-active" class="nav__link">{{
+              item.label
+            }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <a routerLink="/visit-amalfi" class="btn btn--cobalt btn--sm header__cta">Find Us</a>
+      <button
+        type="button"
+        class="menu-btn"
+        #toggleBtn
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-menu"
+      >
+        <span class="sr-only">{{ menuOpen() ? 'Close menu' : 'Open menu' }}</span>
+        <span class="menu-btn__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div
+  class="sheet dark"
+  id="mobile-menu"
+  [class.is-open]="menuOpen()"
+  [attr.inert]="menuOpen() ? null : ''"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menu"
+>
+  <div class="sheet__top">
+    <a routerLink="/" class="sheet__brand" aria-label="La Piccola Gelateria. Home">
+      <img src="brand/logos/logo-horizontal-cream.svg" alt="" width="150" height="41" />
+    </a>
+    <button type="button" class="menu-btn is-open" #closeBtn (click)="closeMenu()">
+      <span class="sr-only">Close menu</span>
+      <span class="menu-btn__bars" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <nav class="sheet__nav" aria-label="Mobile">
+    <ul>
+      @for (item of nav; track item.path; let i = $index) {
+        <li [style.--i]="i">
+          <a [routerLink]="item.path" routerLinkActive="is-active">
+            <span>{{ item.label }}</span>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path d="M5 12h14m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <div class="sheet__foot">
+    <a routerLink="/visit-amalfi" class="btn btn--lemon">Find Us</a>
+    <p>
+      {{ site.address.street }}, {{ site.address.city }}<br />
+      {{ site.hours.label }}
+    </p>
+  </div>
+</div>
+
+<main id="main" [attr.inert]="menuOpen() ? '' : null">
+  <router-outlet />
+</main>
+
+<div class="ceramic-band" aria-hidden="true"></div>
+<footer class="footer dark" [attr.inert]="menuOpen() ? '' : null">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a routerLink="/" aria-label="La Piccola Gelateria. Home">
+        <img
+          src="brand/logos/logo-primary-ceramic-colour.svg"
+          alt="La Piccola Gelateria, Amalfi"
+          width="320"
+          height="184"
+          loading="lazy"
+        />
+      </a>
+      <p class="footer__line">{{ site.tagline }}<br />{{ site.taglineEn }}</p>
+    </div>
+
+    <nav class="footer__col" aria-label="Footer">
+      <h2 class="footer__h">Explore</h2>
+      <ul>
+        @for (item of nav; track item.path) {
+          <li>
+            <a [routerLink]="item.path" class="footer__link">{{ item.label }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="footer__col">
+      <h2 class="footer__h">Visit</h2>
+      <address>
+        {{ site.address.street }}<br />
+        {{ site.address.postcode }} {{ site.address.city }} {{ site.address.region }}<br />
+        {{ site.address.country }}
+      </address>
+      <p class="footer__hours">
+        <strong>Every day</strong><br />
+        10:00am to midnight
+      </p>
+      <a [href]="site.directionsUrl" class="footer__link" target="_blank" rel="noopener"
+        >Get directions</a
+      >
+    </div>
+
+    <div class="footer__col">
+      <h2 class="footer__h">Say ciao</h2>
+      <ul>
+        <li>
+          <a [href]="'mailto:' + site.email" class="footer__link">{{ site.email }}</a>
+        </li>
+        <li>
+          <a [href]="phoneHref" class="footer__link">{{
+            site.phone
+          }}</a>
+        </li>
+        <li>
+          <a [href]="site.instagramUrl" class="footer__link" target="_blank" rel="noopener"
+            >Instagram {{ site.instagramHandle }}</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__base">
+    <img
+      class="footer__sprig"
+      src="brand/ceramic/amalfi-lemon-sprig-transparent.svg"
+      alt=""
+      width="120"
+      height="71"
+      loading="lazy"
+    />
+    <p class="footer__signoff">Made with lemons, sunshine and amore.</p>
+    <p class="footer__legal">
+      © {{ year }} {{ site.name }}. A fictional gelateria, created for a design portfolio.
+      <a routerLink="/credits" class="footer__link">Photo credits</a>
+    </p>
+  </div>
+</footer>

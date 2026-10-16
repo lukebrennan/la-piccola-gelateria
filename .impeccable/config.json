@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/app/shared/icon.ts"
+        ],
+        "createdAt": "2026-10-16T12:55:30.119Z",
+        "reason": "Angular bound [src]=src() resolves to a real brand icon path at runtime; detector reads the template literally (assistant judgement, not user confirmed)"
+      }
+    ]
+  }
+}

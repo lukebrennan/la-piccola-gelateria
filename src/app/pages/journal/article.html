@@ -1,0 +1,53 @@
+@if (article(); as a) {
+  <lp-page-head [crumbs]="[{ name: 'Journal', path: '/journal' }, { name: a.title }]">
+    <h1 class="h1">{{ a.title }}</h1>
+    <p class="meta">
+      By the La Piccola team · <time [attr.datetime]="a.date">{{ date(a.date) }}</time> · {{ a.minutes }} min read
+    </p>
+  </lp-page-head>
+
+  <article class="article">
+    <div class="container container--narrow">
+      <lp-photo class="hero" [photo]="photos[a.photo]" [ratio]="16 / 9" sizes="(min-width: 62rem) 52rem, 92vw" [priority]="true" />
+
+      <div class="body">
+        @for (b of a.body; track $index) {
+          @if (b.h2) {
+            <h2>{{ b.h2 }}</h2>
+          }
+          @for (p of b.p; track $index) {
+            <p>{{ p }}</p>
+          }
+        }
+      </div>
+
+      <aside class="visit" aria-label="Visit us">
+        <p>Fresh gelato, made this morning. Open every day until midnight.</p>
+        <a class="btn" routerLink="/visit-amalfi">Find Us</a>
+      </aside>
+    </div>
+  </article>
+
+  <section class="more section" aria-labelledby="more-h">
+    <div class="container">
+      <h2 id="more-h">Keep <em>reading.</em></h2>
+      <ul>
+        @for (m of more(); track m.slug) {
+          <li lpReveal>
+            <a [routerLink]="['/journal', m.slug]" class="card">
+              <lp-photo class="card__img" [photo]="photos[m.photo]" [ratio]="3 / 2" sizes="(min-width: 62rem) 30vw, 90vw" />
+              <h3 class="card__title">{{ m.title }}</h3>
+              <p class="card__sum">{{ m.summary }}</p>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </section>
+} @else {
+  <lp-page-head [crumbs]="[{ name: 'Journal', path: '/journal' }, { name: 'Not found' }]">
+    <h1>We could not find <em>that article.</em></h1>
+    <p class="lede">It may have moved. The full journal is just a tap away.</p>
+    <a class="btn" routerLink="/journal">Back to the journal</a>
+  </lp-page-head>
+}

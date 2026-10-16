@@ -1,0 +1,38 @@
+<lp-page-head [crumbs]="[{ name: 'Journal' }]">
+  <h1>The <em>journal.</em></h1>
+  <p class="lede">
+    Notes from the counter: lemons, gelato craft and a few good reasons to spend a slow day on the
+    coast.
+  </p>
+</lp-page-head>
+
+<section class="section" aria-labelledby="latest-h">
+  <div class="container">
+    <h2 id="latest-h" class="sr-only">All articles</h2>
+
+    <article class="lead" lpReveal>
+      <a [routerLink]="['/journal', lead.slug]" class="lead__link">
+        <lp-photo class="lead__img" [photo]="photos[lead.photo]" [ratio]="4 / 3" sizes="(min-width: 62rem) 55vw, 90vw" [priority]="true" />
+        <div class="lead__body">
+          <p class="meta">{{ date(lead.date) }} · {{ lead.minutes }} min read</p>
+          <h3 class="title">{{ lead.title }}</h3>
+          <p class="sum">{{ lead.summary }}</p>
+          <span class="read link link--arrow">Read the article</span>
+        </div>
+      </a>
+    </article>
+
+    <ul class="list">
+      @for (a of rest; track a.slug; let i = $index) {
+        <li lpReveal [lpReveal]="(i % 2) * 90">
+          <a [routerLink]="['/journal', a.slug]" class="card">
+            <lp-photo class="card__img" [photo]="photos[a.photo]" [ratio]="3 / 2" sizes="(min-width: 62rem) 26vw, 90vw" />
+            <h3 class="title title--sm">{{ a.title }}</h3>
+            <p class="sum">{{ a.summary }}</p>
+            <p class="meta">{{ date(a.date) }} · {{ a.minutes }} min read</p>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

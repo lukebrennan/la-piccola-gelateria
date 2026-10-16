@@ -1,0 +1,98 @@
+<lp-page-head [crumbs]="[{ name: 'Our Gelato' }]">
+  <h1>Our <em>gelato.</em></h1>
+  <p class="lede">
+    Made fresh every morning and churned in small batches through the day. What is on the
+    counter changes with the season, so come back often.
+  </p>
+</lp-page-head>
+
+<section class="menu" aria-labelledby="menu-h">
+  <h2 id="menu-h" class="sr-only">Flavours</h2>
+
+  <div class="bar">
+    <div class="container bar__inner">
+      <div class="tabs" role="group" aria-label="Filter flavours by type">
+        @for (c of categories; track c) {
+          <button
+            type="button"
+            class="tab"
+            [class.is-active]="filter() === c"
+            [attr.aria-pressed]="filter() === c"
+            (click)="setFilter(c)"
+          >
+            {{ c }}
+          </button>
+        }
+      </div>
+      <button
+        type="button"
+        class="today"
+        [class.is-on]="onlyToday()"
+        [attr.aria-pressed]="onlyToday()"
+        (click)="toggleToday()"
+      >
+        <span class="today__dot" aria-hidden="true"></span>
+        On the counter today
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="intro" aria-live="polite">
+      {{ notes[filter()] }}
+      <span class="count">{{ count() }} {{ count() === 1 ? 'flavour' : 'flavours' }}</span>
+    </p>
+
+    <ul class="grid">
+      @for (f of visible(); track f.slug; let i = $index) {
+        <li class="item" [id]="f.slug" [style.--i]="i">
+          <div class="item__plate">
+            @if (f.photo) {
+              <lp-photo [photo]="photos[f.photo]" [ratio]="1" sizes="(min-width: 56rem) 12vw, 24vw" />
+            } @else {
+              <lp-icon [name]="f.icon" [size]="52" />
+            }
+          </div>
+          <div class="item__body">
+            <h3 class="item__name">{{ f.name }}</h3>
+            <p class="item__desc">{{ f.description }}</p>
+            @if (f.note) {
+              <p class="item__note">{{ f.note }}</p>
+            }
+            <ul class="chips" aria-label="Dietary information">
+              @if (isToday(f)) {
+                <li class="chip chip--today">On today</li>
+              }
+              @if (seasonal(f)) {
+                <li class="chip chip--season">In season</li>
+              }
+              @for (d of f.diet; track d) {
+                <li class="chip" [class.chip--free]="d === 'Milk-free'">{{ d }}</li>
+              }
+            </ul>
+          </div>
+        </li>
+      } @empty {
+        <li class="empty">
+          Nothing on the counter matches that right now.
+          <button type="button" class="link" (click)="setFilter('All')">Show everything</button>
+        </li>
+      }
+    </ul>
+
+    <p class="legend">
+      Made in a kitchen that also handles milk, eggs, gluten and tree nuts. Please ask at the
+      counter if you have an allergy and we will happily talk you through it.
+    </p>
+  </div>
+</section>
+
+<section class="cta dark" aria-labelledby="cta-h">
+  <div class="container cta__inner">
+    <h2 id="cta-h">One more scoop? <em>Sempre.</em></h2>
+    <div class="cta__actions">
+      <a class="btn btn--lemon" routerLink="/visit-amalfi">Find Us</a>
+      <a class="btn btn--ghost-light" routerLink="/ingredients">What goes in</a>
+    </div>
+  </div>
+</section>
