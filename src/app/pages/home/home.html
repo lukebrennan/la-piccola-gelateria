@@ -1,293 +1,198 @@
-<!-- Hero -->
-<section class="hero" aria-labelledby="hero-h">
-  <div class="container hero__grid">
-    <div class="hero__copy">
-      <h1 id="hero-h">Gelato fatto con amore.</h1>
-      <p class="lede">Artisan gelato made fresh every morning in the heart of Amalfi.</p>
-      <div class="hero__actions">
-        <a class="btn" routerLink="/gelato">
-          Explore Our Gelato
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" /></svg>
-        </a>
-        <a class="btn btn--ghost" routerLink="/visit-amalfi">Find Us</a>
-      </div>
-      <p class="hero__status">
-        <span class="dot" [class.is-open]="open() === true" aria-hidden="true"></span>
-        <span>{{ statusLabel() }}</span>
-        <span class="sep" aria-hidden="true">·</span>
-        <a class="link" routerLink="/visit-amalfi">{{ site.address.street }}</a>
-      </p>
-    </div>
+<section class="coast" aria-labelledby="hero-heading">
+  <img
+    class="coast__photo"
+    src="brand/website/photography/hero-amalfi-coast.webp"
+    alt="Handcrafted gelato on a blue and yellow ceramic table above the Amalfi Coast"
+    width="1672"
+    height="941"
+    fetchpriority="high"
+  />
+  <div class="coast__copy">
+    <h1 id="hero-heading"><span>Gelato</span><span>makes life</span><span>sweeter</span></h1>
+    <span class="flourish" aria-hidden="true">✥</span>
+    <p>Handcrafted gelato<br />inspired by Italy.<br />Served with a little<br />more sunshine.</p>
+    <a class="fine-button fine-button--filled" routerLink="/gelato"
+      >Explore our flavours <span aria-hidden="true">⟶</span></a
+    >
+  </div>
+</section>
 
-    <div class="hero__art">
-      <div class="arch">
-        <lp-photo
-          class="arch__photo"
-          [photo]="photos.coneChocolate"
-          [ratio]="4 / 5"
-          sizes="(min-width: 62rem) 38vw, 88vw"
-          [priority]="true"
+<section class="promises" aria-label="A little taste of what we believe">
+  <div class="promises__inner">
+    <a class="promise" routerLink="/our-story">
+      <img
+        class="promise__frame"
+        src="brand/website/frames/frame-ornate-arch.webp"
+        alt=""
+        width="1086"
+        height="1448"
+        loading="lazy"
+      />
+      <div class="promise__artwork">
+        <img
+          class="promise__art promise__art--lemon"
+          src="brand/website/illustrations/watercolour-lemon-single.webp"
+          alt=""
+          width="1086"
+          height="1086"
+          loading="lazy"
         />
       </div>
-      <img class="deco hero__branch" src="art/branch-b.webp" alt="" width="520" height="277" />
-      <img class="deco hero__medal" src="art/medallion-round.webp" alt="" width="200" height="200" />
-      <img class="deco hero__tile" src="art/tile-lemons.webp" alt="" width="180" height="180" />
-      <img class="deco hero__tile2" src="art/tile-rosette.webp" alt="" width="150" height="150" />
-    </div>
-  </div>
-</section>
-
-<!-- Introduction -->
-<section class="section intro" aria-labelledby="intro-h">
-  <div class="container intro__grid">
-    <div class="collage" lpReveal>
-      <lp-photo class="collage__a" [photo]="photos.lemonSorbet" [ratio]="3 / 4" sizes="(min-width: 62rem) 26vw, 52vw" />
-      <lp-photo class="collage__b" [photo]="photos.fiveBowls" [ratio]="4 / 3" sizes="(min-width: 62rem) 24vw, 52vw" />
-      <lp-photo class="collage__c" [photo]="photos.street" [ratio]="1" sizes="(min-width: 62rem) 16vw, 34vw" />
-      <img class="deco collage__tile" src="art/tile-rosette.webp" alt="" width="150" height="150" loading="lazy" />
-    </div>
-
-    <div class="intro__copy" lpReveal [lpReveal]="120">
-      <h2 id="intro-h">Made in Amalfi, a few tubs at a time</h2>
-      <div class="prose">
-        <p>
-          La Piccola Gelateria makes traditional Italian gelato in small batches, using fresh
-          ingredients and the flavours of the coast. We churn all through the day, so what is on the
-          counter was made hours ago, not days.
-        </p>
-        <p class="aside">Small batches. Big Italian summers.</p>
+      <div class="promise__copy">
+        <h2>Small batch</h2>
+        <p>Made fresh, daily<br />in our kitchen</p>
       </div>
-      <a class="link link--arrow" routerLink="/our-story">Read our story</a>
-    </div>
-  </div>
-</section>
-
-<!-- Featured flavours -->
-<section class="section flavours" aria-labelledby="flavours-h">
-  <div class="container">
-    <div class="head">
-      <h2 id="flavours-h">Six flavours to start with</h2>
-      <a class="btn btn--ghost" routerLink="/gelato" [queryParams]="{ today: 1 }">Today's Flavours</a>
-    </div>
-
-    <ul class="plates">
-      @for (f of featured; track f.slug; let i = $index) {
-        <li class="plate" lpReveal [lpReveal]="(i % 3) * 90">
-          <a class="plate__link" routerLink="/gelato" [fragment]="f.slug">
-            <span class="plate__disc">
-              @if (f.photo) {
-                <lp-photo [photo]="photos[f.photo]" [ratio]="1" sizes="(min-width: 62rem) 22vw, 44vw" />
-              } @else {
-                <lp-icon [name]="f.icon" [size]="84" />
-              }
-            </span>
-            <span class="plate__name">{{ f.name }}</span>
-            <span class="plate__desc">{{ f.description }}</span>
-            @if (f.diet.length) {
-              <span class="plate__chip">{{ f.diet[0] }}</span>
-            }
-          </a>
-        </li>
-      }
-    </ul>
-    <p class="flavours__note">Freshly churned. Best enjoyed slowly.</p>
-  </div>
-</section>
-
-<!-- Amalfi lemon -->
-<section class="lemon" aria-labelledby="lemon-h">
-  <div class="ceramic-band" aria-hidden="true"></div>
-  <div class="container lemon__grid">
-    <div class="lemon__art" lpReveal>
-      <div class="lemon__tiles" aria-hidden="true">
-        <img src="art/tile-fleur.webp" alt="" width="180" height="180" loading="lazy" />
-        <img src="art/tile-lemons.webp" alt="" width="180" height="180" loading="lazy" />
-        <img src="art/tile-rosette.webp" alt="" width="180" height="180" loading="lazy" />
-        <img src="art/medallion-square.webp" alt="" width="180" height="180" loading="lazy" />
-      </div>
-      <div class="frame lemon__frame">
-        <lp-photo
-          [class.parallax]="true"
-          [photo]="photos.lemonGrove"
-          [ratio]="4 / 5"
-          sizes="(min-width: 62rem) 36vw, 80vw"
+    </a>
+    <a class="promise" routerLink="/our-story">
+      <img
+        class="promise__frame"
+        src="brand/website/frames/frame-ornate-arch.webp"
+        alt=""
+        width="1086"
+        height="1448"
+        loading="lazy"
+      />
+      <div class="promise__artwork">
+        <img
+          class="promise__art promise__art--coast"
+          src="brand/website/illustrations/watercolour-amalfi-coast.webp"
+          alt=""
+          width="1086"
+          height="1086"
+          loading="lazy"
         />
       </div>
-      <img class="deco lemon__branch" src="art/branch-a.webp" alt="" width="520" height="277" loading="lazy" />
-    </div>
-
-    <div class="lemon__copy" lpReveal [lpReveal]="120">
-      <h2 id="lemon-h">Why we use Amalfi lemons</h2>
-      <div class="prose">
-        <p>
-          Our signature sorbet starts with Amalfi lemons: long, fragrant and picked by hand on the
-          terraces above the sea. We use the zest as well as the juice, so it smells like the
-          grove before it tastes of anything.
-        </p>
+      <div class="promise__copy">
+        <h2>Italian inspired</h2>
+        <p>Rooted in tradition,<br />made for today</p>
       </div>
-      <ul class="facts">
-        <li>Sfusato Amalfitano, thick-skinned and aromatic</li>
-        <li>Grown on cliffside terraces under chestnut pergolas</li>
-        <li>Lemon, sugar and water. Nothing else.</li>
-      </ul>
-      <a class="btn" routerLink="/gelato" fragment="limone-di-amalfi">Taste the lemon sorbet</a>
-    </div>
-  </div>
-  <div class="ceramic-band" aria-hidden="true"></div>
-</section>
-
-<!-- Our story -->
-<section class="section story" aria-labelledby="story-h">
-  <div class="container story__grid">
-    <div class="story__copy" lpReveal>
-      <h2 id="story-h">A family counter on Via dei Limoni</h2>
-      <div class="prose">
-        <p>
-          It began with a seafront cart and a notebook of family recipes. Today it is one small
-          counter, a few steady hands and the same rule as ever: make it fresh, make it simple, make
-          it slowly.
-        </p>
+    </a>
+    <a class="promise" routerLink="/ingredients">
+      <img
+        class="promise__frame"
+        src="brand/website/frames/frame-ornate-arch.webp"
+        alt=""
+        width="1086"
+        height="1448"
+        loading="lazy"
+      />
+      <div class="promise__artwork">
+        <img
+          class="promise__art promise__art--cone"
+          src="brand/website/illustrations/watercolour-cone-fragola.webp"
+          alt=""
+          width="1086"
+          height="1086"
+          loading="lazy"
+        />
       </div>
-      <a class="link link--arrow" routerLink="/our-story">Meet the family</a>
-    </div>
-
-    <div class="scrap" lpReveal [lpReveal]="120">
-      <lp-photo class="scrap__photo" [photo]="photos.cart" [ratio]="3 / 4" sizes="(min-width: 62rem) 24vw, 46vw" />
-      <figure class="scrap__note">
-        <blockquote>
-          <p>Taste it warm. Taste it twice. Never hurry the churn.</p>
-        </blockquote>
-        <figcaption>From the recipe notebook</figcaption>
-      </figure>
-      <lp-photo class="scrap__tiles" [photo]="photos.ceramics" [ratio]="1" sizes="(min-width: 62rem) 16vw, 34vw" />
-      <img class="deco scrap__tile" src="art/medallion-square.webp" alt="" width="150" height="150" loading="lazy" />
-    </div>
-  </div>
-</section>
-
-<!-- Ingredients -->
-<section class="section ingredients" aria-labelledby="ing-h">
-  <div class="container ingredients__grid">
-    <div class="ingredients__list">
-      <h2 id="ing-h">What goes into it</h2>
-      <ul>
-        @for (ing of ingredients; track ing.slug; let i = $index) {
-          <li>
-            <button
-              type="button"
-              class="ing"
-              [class.is-active]="activeIngredient() === i"
-              [attr.aria-pressed]="activeIngredient() === i"
-              (mouseenter)="setIngredient(i)"
-              (focus)="setIngredient(i)"
-              (click)="setIngredient(i)"
-            >
-              <lp-icon [name]="ingredientIcon[ing.slug]" [size]="38" />
-              <span class="ing__text">
-                <span class="ing__name">{{ ing.name }}</span>
-                <span class="ing__short">{{ ing.short }}</span>
-              </span>
-            </button>
-          </li>
-        }
-      </ul>
-      <a class="link link--arrow" routerLink="/ingredients">See where it all comes from</a>
-    </div>
-
-    <figure class="ingredients__panel" aria-live="polite">
-      <div class="frame panel__frame">
-        @if (activeIng().photo; as key) {
-          <lp-photo [photo]="photos[key]" [ratio]="4 / 5" sizes="(min-width: 62rem) 36vw, 90vw" [alt]="activeIng().name" />
-        } @else {
-          <div class="panel__tile">
-            <lp-icon [name]="ingredientIcon[activeIng().slug]" [size]="120" />
-          </div>
-        }
+      <div class="promise__copy">
+        <h2>Real ingredients</h2>
+        <p>Simple. Seasonal.<br />Always delicious</p>
       </div>
-      <figcaption>
-        <strong>{{ activeIng().name }}</strong>
-        <span>{{ activeIng().origin }}</span>
-      </figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- Atmospheric break -->
-<section class="break dark" aria-labelledby="break-h">
-  <lp-tilewall class="break__wall" />
-  <div class="container break__inner">
-    <h2 id="break-h">La dolce vita, one scoop at a time.</h2>
-    <a class="btn btn--lemon" routerLink="/gelato" [queryParams]="{ today: 1 }">See what is on today</a>
-  </div>
-  <lp-tilewall class="break__wall" />
-</section>
-
-<!-- Visit -->
-<section class="section visit" aria-labelledby="visit-h">
-  <div class="container visit__grid">
-    <div class="visit__copy" lpReveal>
-      <h2 id="visit-h">Find us in Amalfi</h2>
-      <address class="visit__address">
-        {{ site.address.street }}<br />
-        {{ site.address.postcode }} {{ site.address.city }} {{ site.address.region }}<br />
-        {{ site.address.country }}
-      </address>
-      <p class="visit__landmark">{{ site.landmark }}</p>
-
-      <lp-hours class="hours" />
-
-      <div class="visit__actions">
-        <a class="btn" [href]="site.directionsUrl" target="_blank" rel="noopener">
-          Get Directions
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" /></svg>
-        </a>
-        <a class="btn btn--ghost" [href]="'tel:' + site.phone.split(' ').join('')">Call {{ site.phone }}</a>
+    </a>
+    <a class="promise" routerLink="/visit-amalfi">
+      <img
+        class="promise__frame"
+        src="brand/website/frames/frame-ornate-arch.webp"
+        alt=""
+        width="1086"
+        height="1448"
+        loading="lazy"
+      />
+      <div class="promise__artwork">
+        <img
+          class="promise__art promise__art--community"
+          src="brand/website/illustrations/watercolour-lemon-leafy-sprig.webp"
+          alt=""
+          width="1086"
+          height="1448"
+          loading="lazy"
+        />
       </div>
-    </div>
-
-    <div class="visit__map" lpReveal [lpReveal]="120">
-      <lp-map />
-    </div>
+      <div class="promise__copy">
+        <h2>A sweeter<br />community</h2>
+        <p>Gelato brings<br />people together</p>
+      </div>
+    </a>
   </div>
 </section>
 
-<!-- Gallery -->
-<section class="section gallery" aria-labelledby="gallery-h">
-  <img class="deco gallery__medal" src="art/medallion-round.webp" alt="" width="200" height="200" loading="lazy" />
-  <div class="container">
-    <div class="head">
-      <h2 id="gallery-h">Around the shop</h2>
-      <a class="link link--arrow" [href]="site.instagramUrl" target="_blank" rel="noopener">{{ site.instagramHandle }}</a>
-    </div>
-    <div class="mosaic">
-      <lp-photo class="m m--1" [photo]="photos.outside" [ratio]="3 / 2" sizes="(min-width: 62rem) 40vw, 60vw" />
-      <lp-photo class="m m--2" [photo]="photos.stairs" [ratio]="2 / 3" sizes="(min-width: 62rem) 20vw, 40vw" />
-      <lp-photo class="m m--3" [photo]="photos.ravello" [ratio]="3 / 4" sizes="(min-width: 62rem) 20vw, 40vw" />
-      <lp-photo class="m m--4" [photo]="photos.displayCounter" [ratio]="3 / 2" sizes="(min-width: 62rem) 40vw, 60vw" />
-      <lp-photo class="m m--5" [photo]="photos.beach" [ratio]="3 / 4" sizes="(min-width: 62rem) 20vw, 40vw" />
-      <lp-photo class="m m--6" [photo]="photos.lemonsLeaves" [ratio]="1" sizes="(min-width: 62rem) 20vw, 40vw" />
-    </div>
+<section class="gelato-story" aria-labelledby="gelato-heading">
+  <div class="gelato-story__portrait">
+    <img
+      src="brand/website/photography/gelato-cone-at-the-shop.webp"
+      alt="A freshly scooped strawberry, pistachio and vanilla gelato cone outside a tiled Italian gelateria"
+      width="1536"
+      height="2048"
+      loading="lazy"
+    />
   </div>
-</section>
-
-<!-- Journal -->
-<section class="section journal" aria-labelledby="journal-h">
-  <div class="container">
-    <div class="head">
-      <h2 id="journal-h">From the journal</h2>
-      <a class="link link--arrow" routerLink="/journal">All articles</a>
-    </div>
-    <ul class="posts">
-      @for (a of articles; track a.slug; let i = $index) {
-        <li class="post" [class.post--lead]="i === 0" lpReveal [lpReveal]="i * 90">
-          <a [routerLink]="route(a.slug)" class="post__link">
-            <lp-photo class="post__img" [photo]="photos[a.photo]" [ratio]="i === 0 ? 4 / 3 : 3 / 2" [sizes]="i === 0 ? '(min-width: 62rem) 50vw, 90vw' : '(min-width: 62rem) 26vw, 90vw'" />
-            <h3 class="post__title">{{ a.title }}</h3>
-            <span class="post__sum">{{ a.summary }}</span>
-            <span class="post__meta">{{ dateLabel(a.date) }} · {{ a.minutes }} min read</span>
-          </a>
-        </li>
-      }
-    </ul>
+  <div class="gelato-story__copy">
+    <p class="eyebrow">Our gelato</p>
+    <span class="flourish" aria-hidden="true">✥</span>
+    <h2 id="gelato-heading">
+      <span>Traditional</span><span>flavours.</span><span>Brighter days.</span>
+    </h2>
+    <span class="flourish" aria-hidden="true">✥</span>
+    <p class="gelato-story__description">
+      From classic pistachio to sun-ripened lemon, our gelato is a celebration of real ingredients
+      and timeless Italian tradition.
+    </p>
+    <a class="fine-button" routerLink="/gelato"
+      >View all flavours <span aria-hidden="true">⟶</span></a
+    >
+    <img
+      class="gelato-story__lemon"
+      src="brand/website/illustrations/watercolour-lemon-single.webp"
+      alt=""
+      width="500"
+      height="750"
+      loading="lazy"
+    />
+  </div>
+  <div class="flavour-notes" aria-label="Three of our favourite flavours">
+    <a class="flavour-note" routerLink="/gelato" fragment="limone-di-amalfi">
+      <img
+        src="brand/website/photography/ingredient-lemons.webp"
+        alt="Sun-ripened Amalfi lemons"
+        width="1024"
+        height="1024"
+        loading="lazy"
+      />
+      <div class="flavour-note__copy">
+        <h3>Limone</h3>
+        <p>Bright. Refreshing.<br />Iconic.</p>
+        <span class="flavour-note__arrow" aria-hidden="true">→</span>
+      </div>
+    </a>
+    <a class="flavour-note" routerLink="/gelato" fragment="pistacchio">
+      <img
+        src="brand/website/photography/ingredient-pistachios.webp"
+        alt="Sicilian pistachios in their shells"
+        width="1024"
+        height="1024"
+        loading="lazy"
+      />
+      <div class="flavour-note__copy">
+        <h3>Pistacchio</h3>
+        <p>Rich. Nutty.<br />Unforgettable.</p>
+        <span class="flavour-note__arrow" aria-hidden="true">→</span>
+      </div>
+    </a>
+    <a class="flavour-note" routerLink="/gelato" fragment="fragola">
+      <img
+        src="brand/website/photography/ingredient-strawberries.webp"
+        alt="Fresh strawberries at their summer best"
+        width="1024"
+        height="1024"
+        loading="lazy"
+      />
+      <div class="flavour-note__copy">
+        <h3>Fragola</h3>
+        <p>Sweet. Juicy.<br />A taste of summer.</p>
+        <span class="flavour-note__arrow" aria-hidden="true">→</span>
+      </div>
+    </a>
   </div>
 </section>

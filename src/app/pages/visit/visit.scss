@@ -123,3 +123,9 @@ details p {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+:host { display: block; }
+.catering { background: color-mix(in srgb, var(--cobalt) 7%, var(--cream)); text-align: center; }
+.catering__inner { display: grid; justify-items: center; gap: 1rem; }
+.catering .eyebrow { margin: 0; color: var(--cobalt); font-size: var(--step--1); letter-spacing: 0.17em; text-transform: uppercase; }
+.catering h2 { max-width: 14ch; }
+.catering__inner > p:not(.eyebrow) { max-width: 48ch; margin: 0 0 0.6rem; }

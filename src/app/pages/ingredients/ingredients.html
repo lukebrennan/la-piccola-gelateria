@@ -1,68 +1,10 @@
-<lp-page-head [crumbs]="[{ name: 'Ingredients' }]">
-  <h1>Ingredients</h1>
-  <p class="lede">
-    Six ingredients do most of the work. Here is where they come from and what we make with them.
-  </p>
-</lp-page-head>
-
-@for (ing of items; track ing.slug; let i = $index) {
-  <section class="row section" [class.row--alt]="i % 2 === 1" [attr.aria-labelledby]="ing.slug">
-    <div class="container split" [class.split--rev]="i % 2 === 1">
-      <div class="frame media" lpReveal>
-        @if (ing.photo) {
-          <lp-photo [photo]="photos[ing.photo]" [ratio]="4 / 5" sizes="(min-width: 62rem) 40vw, 90vw" [alt]="ing.name" />
-        } @else {
-          <div class="tile">
-            <lp-icon [name]="icon[ing.slug]" [size]="132" />
-          </div>
-        }
-      </div>
-      <div class="stack" lpReveal [lpReveal]="120">
-        <h2 [id]="ing.slug">{{ ing.name }}</h2>
-        <p class="origin">
-          <img src="brand/icons/find-us.svg" alt="" width="22" height="22" loading="lazy" />
-          {{ ing.origin }}
-        </p>
-        <p class="prose">{{ ing.story }}</p>
-        <div class="used">
-          <p class="used__label">Find it in</p>
-          <ul>
-            @for (u of ing.used; track u) {
-              <li>
-                @if (slugFor(u); as s) {
-                  <a routerLink="/gelato" [fragment]="s" class="used__chip">{{ u }}</a>
-                } @else {
-                  <span class="used__chip">{{ u }}</span>
-                }
-              </li>
-            }
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-}
-
-<section class="promise dark" aria-labelledby="promise-h">
-  <div class="container">
-    <h2 id="promise-h">Where it comes from</h2>
-    <ul>
-      @for (p of promises; track p.lead) {
-        <li lpReveal>
-          <h3>{{ p.lead }}</h3>
-          <p>{{ p.text }}</p>
-        </li>
-      }
-    </ul>
-  </div>
+<lp-page-head [crumbs]="[{ name: 'Ingredients' }]"><h1>Real ingredients</h1><p class="lede">Simple. Seasonal. Always delicious.<br />The ingredients do the talking.</p></lp-page-head>
+<section class="ingredient-book container" aria-label="Our ingredients">
+  @for (ing of items; track ing.slug) {
+    <article class="ingredient" lpReveal>
+      <div class="ingredient__image">@if (ing.photo) { <lp-photo [photo]="photos[ing.photo]" [ratio]="4 / 3" sizes="(min-width: 50rem) 40vw, 90vw" /> } @else { <div class="ingredient__drawing"><lp-icon [name]="icon[ing.slug]" [size]="84" /></div> }</div>
+      <div class="ingredient__copy"><h2 [id]="ing.slug">{{ ing.name }}</h2><p class="ingredient__origin">{{ ing.origin }}</p><p class="ingredient__story">{{ ing.story }}</p><div class="ingredient__used"><span>Find it in</span>@for (u of ing.used; track u) { @if (slugFor(u); as s) { <a routerLink="/gelato" [fragment]="s">{{ u }}</a> } @else { <span>{{ u }}</span> } }</div></div>
+    </article>
+  }
 </section>
-
-<section class="section close" aria-labelledby="close-h">
-  <div class="container close__inner">
-    <h2 id="close-h">Try it for yourself</h2>
-    <div class="close__actions">
-      <a class="btn" routerLink="/gelato">See Our Gelato</a>
-      <a class="btn btn--ghost" routerLink="/visit-amalfi">Find Us</a>
-    </div>
-  </div>
-</section>
+<div class="ingredient-close"><p>A little taste of where we come from.</p><a class="btn btn--ghost" routerLink="/gelato">Explore our flavours <span aria-hidden="true">⟶</span></a></div>
