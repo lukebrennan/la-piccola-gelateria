@@ -1,79 +1,58 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DestroyRef,
-  PLATFORM_ID,
-  afterNextRender,
-  inject,
-  signal,
-  viewChild,
-  ElementRef,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, PLATFORM_ID, inject, signal, viewChild } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
-import { NAV, SITE } from './core/site';
-import { TileWall } from './shared/tilewall';
-import { openStatus } from './core/open-status';
+import { FOOTER_NAV, NAV, SITE } from './core/site';
+import { BrandMark } from './shared/brand-mark';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, TileWall],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, BrandMark],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  host: { '(document:keydown.escape)': 'closeMenu()' },
+  host: { '(document:keydown)': 'handleKeydown($event)' },
 })
 export class App {
   protected readonly site = SITE;
-  protected readonly nav = NAV;
-  protected readonly phoneHref = 'tel:' + SITE.phone.replace(/\s/g, '');
+  protected readonly leftNav = NAV.slice(0, 3);
+  protected readonly rightNav = NAV.slice(3);
+  protected readonly mobileNav = [NAV[0], ...FOOTER_NAV];
   protected readonly year = new Date().getFullYear();
-
   protected readonly menuOpen = signal(false);
-  protected readonly scrolled = signal(false);
-  protected readonly status = signal<string>('Freshly made today · Open every day until midnight');
-
   private readonly toggleBtn = viewChild<ElementRef<HTMLButtonElement>>('toggleBtn');
   private readonly closeBtn = viewChild<ElementRef<HTMLButtonElement>>('closeBtn');
   private readonly platform = inject(PLATFORM_ID);
   private readonly router = inject(Router);
-  private readonly destroyRef = inject(DestroyRef);
 
   constructor() {
-    this.router.events
-      .pipe(filter((e) => e instanceof NavigationEnd))
-      .subscribe(() => this.closeMenu());
-
-    afterNextRender(() => {
-      if (!isPlatformBrowser(this.platform)) return;
-      const s = openStatus();
-      this.status.set(
-        s.open
-          ? 'Freshly made today · Open now until midnight'
-          : 'Freshly made today · Opens at 10:00 every day',
-      );
-      const onScroll = () => this.scrolled.set(window.scrollY > 8);
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-      this.destroyRef.onDestroy(() => window.removeEventListener('scroll', onScroll));
-    });
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd), takeUntilDestroyed()).subscribe(() => this.closeMenu(false));
   }
 
   protected toggleMenu(): void {
-    this.menuOpen.update((v) => !v);
+    this.menuOpen.update((value) => !value);
     if (!isPlatformBrowser(this.platform)) return;
     document.body.style.overflow = this.menuOpen() ? 'hidden' : '';
-    // Move focus into the sheet once it is visible
-    if (this.menuOpen()) setTimeout(() => this.closeBtn()?.nativeElement.focus(), 60);
+    if (this.menuOpen()) setTimeout(() => this.closeBtn()?.nativeElement.focus(), 0);
   }
 
-  protected closeMenu(): void {
+  protected closeMenu(returnFocus = true): void {
     if (!this.menuOpen()) return;
     this.menuOpen.set(false);
     if (!isPlatformBrowser(this.platform)) return;
     document.body.style.overflow = '';
-    // Return focus to the control that opened the sheet
-    setTimeout(() => this.toggleBtn()?.nativeElement.focus(), 0);
+    if (returnFocus) this.toggleBtn()?.nativeElement.focus();
+  }
+
+  protected handleKeydown(event: KeyboardEvent): void {
+    if (!this.menuOpen() || !isPlatformBrowser(this.platform)) return;
+    if (event.key === 'Escape') { this.closeMenu(); return; }
+    if (event.key !== 'Tab') return;
+    const controls = Array.from(document.querySelectorAll<HTMLElement>('#mobile-menu a, #mobile-menu button')).filter((el) => el.offsetParent !== null);
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
   }
 }

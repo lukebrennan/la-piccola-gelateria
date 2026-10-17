@@ -1,7 +1,6 @@
 /**
- * Photography catalogue. All images are free-licence Unsplash photos, served from the Unsplash
- * image CDN and credited on the /credits page. Swap `id` for a local file when real shop
- * photography exists; nothing else in the app needs to change.
+ * Photo ids may be Unsplash CDN ids or local generated brand assets. Local photos share the same
+ * loader interface as remote photography.
  */
 export interface Photo {
   /** Unsplash photo id (the part after `photo-`). */
@@ -18,6 +17,81 @@ export interface Photo {
 const u = (handle: string) => `https://unsplash.com/@${handle}`;
 
 export const PHOTOS = {
+  ingredientLemons: {
+    id: '/brand/website/photography/ingredient-lemons.webp', alt: 'Fresh golden Amalfi lemons with glossy green leaves', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  ingredientPistachios: {
+    id: '/brand/website/photography/ingredient-pistachios.webp', alt: 'Sicilian pistachios and green kernels in a cream ceramic dish', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  ingredientStrawberries: {
+    id: '/brand/website/photography/ingredient-strawberries.webp', alt: 'Ripe strawberries and green leaves in warm sunlight', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  heroAmalfi: {
+    id: '/brand/website/photography/hero-amalfi-coast.webp',
+    alt: 'Three scoops of gelato on a hand-painted ceramic table overlooking the Amalfi Coast',
+    credit: 'La Piccola Gelateria',
+    creditUrl: '/',
+    ratio: 1672 / 941,
+    focus: 'center 54%',
+  },
+  flavourLimone: {
+    id: '/brand/website/photography/flavours/limone.webp',
+    alt: 'Fresh lemon gelato with Amalfi lemons and a curl of peel',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourCaffe: {
+    id: '/brand/website/photography/flavours/caffe.webp',
+    alt: 'Italian coffee gelato with a dusting of espresso grounds', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourCaramello: {
+    id: '/brand/website/photography/flavours/caramello-salato.webp',
+    alt: 'Salted caramel gelato finished with a delicate caramel ribbon', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourCocco: {
+    id: '/brand/website/photography/flavours/cocco.webp',
+    alt: 'Coconut gelato topped with toasted coconut flakes', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourPistacchio: {
+    id: '/brand/website/photography/flavours/pistacchio.webp',
+    alt: 'Pistachio gelato with crushed Sicilian pistachios',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourStracciatella: {
+    id: '/brand/website/photography/flavours/stracciatella.webp',
+    alt: 'Creamy stracciatella gelato with dark chocolate pieces',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourFragola: {
+    id: '/brand/website/photography/flavours/fragola.webp',
+    alt: 'Strawberry gelato with fresh ripe strawberries',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourLampone: {
+    id: '/brand/website/photography/flavours/lampone.webp',
+    alt: 'Raspberry gelato with fresh raspberries', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourMango: {
+    id: '/brand/website/photography/flavours/mango.webp',
+    alt: 'Mango gelato with pieces of ripe mango', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourNocciola: {
+    id: '/brand/website/photography/flavours/nocciola.webp',
+    alt: 'Hazelnut gelato topped with toasted Piedmont hazelnuts', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourChocolate: {
+    id: '/brand/website/photography/flavours/cioccolato-fondente.webp',
+    alt: 'Dark chocolate gelato with curls of bittersweet chocolate',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourFiorDiLatte: {
+    id: '/brand/website/photography/flavours/vaniglia.webp',
+    alt: 'Fior di latte gelato, smooth and simply finished',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourVaniglia: {
+    id: '/brand/website/photography/flavours/vaniglia.webp',
+    alt: 'Vanilla gelato with vanilla bean and a smooth, creamy finish', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
   cone: {
     id: '1715194803865-54f4358f87ef',
     alt: 'A hand holding a gelato cone on a sunlit street',
@@ -179,8 +253,9 @@ export const PHOTOS = {
 
 export type PhotoKey = keyof typeof PHOTOS;
 
-/** Unsplash image URL with width and optional crop ratio. */
+/** Remote Unsplash image URL or the local file path. */
 export function photoUrl(id: string, width: number, ratio?: number): string {
+  if (id.startsWith('/')) return id;
   const h = ratio ? `&h=${Math.round(width / ratio)}` : '';
   return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&crop=entropy&w=${width}${h}&q=72`;
 }

@@ -30,7 +30,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Milk-free'],
     staple: true,
     icon: 'lemon',
-    photo: 'lemonSign',
+    photo: 'flavourLimone',
     note: 'Sfusato lemons from the terraces above town, zest and juice.',
   },
   {
@@ -41,7 +41,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Contains nuts'],
     staple: true,
     icon: 'leaf',
-    photo: 'gelatoBowl',
+    photo: 'flavourPistacchio',
     note: 'Stone-ground pistachios from Bronte, nothing green added.',
   },
   {
@@ -52,7 +52,7 @@ export const FLAVOURS: Flavour[] = [
     diet: [],
     staple: true,
     icon: 'cone',
-    photo: 'displayCounter',
+    photo: 'flavourStracciatella',
   },
   {
     slug: 'fragola',
@@ -62,7 +62,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Milk-free'],
     staple: true,
     icon: 'sun',
-    photo: 'strawberries',
+    photo: 'flavourFragola',
     months: [4, 5, 6, 7, 8, 9],
   },
   {
@@ -73,7 +73,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Milk-free'],
     staple: true,
     icon: 'cup',
-    photo: 'cone',
+    photo: 'flavourChocolate',
     note: 'Made with water, so it is as dark as it is dairy-free.',
   },
   {
@@ -84,7 +84,6 @@ export const FLAVOURS: Flavour[] = [
     diet: [],
     staple: true,
     icon: 'cup',
-    photo: 'display',
   },
   {
     slug: 'nocciola',
@@ -94,6 +93,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Contains nuts'],
     staple: false,
     icon: 'leaf',
+    photo: 'flavourNocciola',
   },
   {
     slug: 'vaniglia',
@@ -103,6 +103,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Contains egg'],
     staple: false,
     icon: 'flower',
+    photo: 'flavourVaniglia',
   },
   {
     slug: 'crema-amalfitana',
@@ -121,6 +122,7 @@ export const FLAVOURS: Flavour[] = [
     diet: [],
     staple: false,
     icon: 'cup',
+    photo: 'flavourCaffe',
   },
   {
     slug: 'fico',
@@ -161,6 +163,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Contains egg', 'Contains gluten'],
     staple: false,
     icon: 'lemon',
+    photo: 'flavourLimone',
     note: 'Our take on the Amalfi Coast pastry.',
   },
   {

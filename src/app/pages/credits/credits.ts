@@ -12,7 +12,7 @@ import { PageHead } from '../../shared/page-head';
       <h1>Photo credits</h1>
       <p class="lede">
         La Piccola Gelateria is a fictional business, created as a web design and development
-        portfolio project. Its imagery comes from the photographers below, shared freely on Unsplash.
+        portfolio project. The hero, flavour photographs and hand-painted brand artwork were created for this design with AI image generation. Additional editorial photographs are credited below.
       </p>
     </lp-page-head>
 
@@ -27,7 +27,7 @@ import { PageHead } from '../../shared/page-head';
           }
         </ul>
         <p class="note">
-          Typefaces: Bodoni Moda and DM Sans, both under the SIL Open Font Licence. Brand artwork:
+          Typefaces: Cormorant Garamond, Montserrat and Oooh Baby, under the SIL Open Font Licence. Brand artwork:
           the La Piccola Gelateria brand kit.
         </p>
       </div>
@@ -57,7 +57,7 @@ import { PageHead } from '../../shared/page-head';
 })
 export class Credits {
   protected readonly credits = Array.from(
-    new Map(Object.values(PHOTOS).map((p) => [p.credit, p])).values(),
+    new Map(Object.values(PHOTOS).filter((p) => !p.id.startsWith('/')).map((p) => [p.credit, p])).values(),
   ).sort((a, b) => a.credit.localeCompare(b.credit));
 
   constructor() {

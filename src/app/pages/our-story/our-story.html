@@ -1,99 +1,11 @@
-<lp-page-head [crumbs]="[{ name: 'Our Story' }]">
-  <h1>Our story</h1>
-  <p class="lede">
-    A small family gelateria on a narrow street in Amalfi. Everything is made fresh, with few
-    ingredients, and without hurrying.
-  </p>
-</lp-page-head>
-
-<section class="section" aria-labelledby="began-h">
-  <div class="container split">
-    <div class="frame" lpReveal>
-      <lp-photo [photo]="photos.cart" [ratio]="4 / 5" sizes="(min-width: 62rem) 40vw, 90vw" />
-    </div>
-    <div class="stack" lpReveal [lpReveal]="120">
-      <h2 id="began-h">A cart on the seafront</h2>
-      <div class="prose">
-        <p>
-          Long before there was a shop, there was a small painted cart on the seafront and a
-          notebook of family recipes. Summers on the Amalfi Coast taught us two things: people want
-          something cold and honest, and the best flavours are the ones that taste of where you are.
-        </p>
-        <p>
-          The cart became a counter on Via dei Limoni. The notebook is still on the shelf, a little
-          stained with lemon, and we still check it before every new flavour.
-        </p>
-      </div>
-    </div>
-  </div>
+<lp-page-head [crumbs]="[{ name: 'Our Story' }]"><h1>Our story</h1><p class="lede">A little family counter.<br />A lifetime of Italian summers.</p></lp-page-head>
+<section class="story-duet" aria-labelledby="our-story-heading">
+  <img class="story-duet__photo" src="brand/website/photography/gelato-cone-at-the-shop.webp" alt="A freshly scooped gelato cone outside a tiled Italian gelateria" width="1122" height="1402" />
+  <div class="story-duet__copy"><p class="eyebrow">Made with amore</p><h2 id="our-story-heading">Small batches.<br />Big Italian summers.</h2><div class="prose"><p>It began with a seafront cart and a notebook of family recipes. Today it is one small counter on Via dei Limoni, a few steady hands, and the same rule as ever: make it fresh, make it simple, make it slowly.</p><p>Our recipes are short on purpose. Fruit in season, milk from nearby farms, nuts from the best groves we can find. A handful of ingredients, a little patience, and nothing to hide.</p></div><blockquote>“Taste it warm. Taste it twice.<br />Never hurry the churn.”</blockquote><p class="caption">From the recipe notebook</p></div>
 </section>
-
-<section class="section notebook" aria-labelledby="notebook-h">
-  <div class="container split split--rev">
-    <div class="stack" lpReveal>
-      <h2 id="notebook-h">The recipe notebook</h2>
-      <div class="prose">
-        <p>
-          Our recipes are short on purpose. Most fit on half a page: a handful of ingredients, a
-          temperature and a note in the margin. The margin is where the good advice lives.
-        </p>
-        <p>
-          Fruit in season, milk from nearby farms, nuts from the best groves we can find. We would
-          rather make six perfect flavours than twenty average ones, and the notebook agrees.
-        </p>
-      </div>
-      <figure class="note">
-        <blockquote><p>Taste it warm. Taste it twice. Never hurry the churn.</p></blockquote>
-        <figcaption>From the recipe notebook</figcaption>
-      </figure>
-    </div>
-    <div class="duo" lpReveal [lpReveal]="120">
-      <lp-photo class="duo__a" [photo]="photos.lemonSorbet" [ratio]="3 / 4" sizes="(min-width: 62rem) 26vw, 55vw" />
-      <lp-photo class="duo__b" [photo]="photos.ceramics" [ratio]="1" sizes="(min-width: 62rem) 18vw, 38vw" />
-      <img class="deco duo__tile" src="art/medallion-square.webp" alt="" width="150" height="150" loading="lazy" />
-    </div>
-  </div>
+<section class="rituals" aria-label="How we make our gelato">
+  <article><img src="brand/website/illustrations/watercolour-lemon-single.webp" alt="" width="500" height="500" loading="lazy" /><h2>Follow the season</h2><p>When the fruit is at its best,<br />that is when we make it.</p></article>
+  <article><img src="brand/website/illustrations/watercolour-pistachios.webp" alt="" width="500" height="500" loading="lazy" /><h2>Keep it simple</h2><p>Real ingredients.<br />Their own beautiful flavours.</p></article>
+  <article><img src="brand/website/illustrations/watercolour-cone-three-scoops.webp" alt="" width="500" height="500" loading="lazy" /><h2>Make it fresh</h2><p>Small batches through the day.<br />Always worth slowing down for.</p></article>
 </section>
-
-<section class="section morning" aria-labelledby="morning-h">
-  <div class="container split">
-    <div class="stack" lpReveal>
-      <h2 id="morning-h">A morning at the counter</h2>
-      <ol class="day">
-        @for (m of morning; track m.time) {
-          <li>
-            <span class="day__time">{{ m.time }}</span>
-            <span class="day__text">{{ m.text }}</span>
-          </li>
-        }
-      </ol>
-    </div>
-    <div class="frame" lpReveal [lpReveal]="120">
-      <lp-photo [photo]="photos.display" [ratio]="4 / 5" sizes="(min-width: 62rem) 38vw, 90vw" />
-    </div>
-  </div>
-</section>
-
-<section class="beliefs dark" aria-labelledby="beliefs-h">
-  <div class="container">
-    <h2 id="beliefs-h">How we work</h2>
-    <ul>
-      @for (b of beliefs; track b.lead) {
-        <li lpReveal>
-          <h3>{{ b.lead }}</h3>
-          <p>{{ b.text }}</p>
-        </li>
-      }
-    </ul>
-  </div>
-</section>
-
-<section class="section close" aria-labelledby="close-h">
-  <div class="container close__inner">
-    <h2 id="close-h">Come and see us</h2>
-    <div class="close__actions">
-      <a class="btn" routerLink="/visit-amalfi">Find Us</a>
-      <a class="btn btn--ghost" routerLink="/gelato">See Our Gelato</a>
-    </div>
-  </div>
-</section>
+<div class="story-close"><a class="btn btn--ghost" routerLink="/gelato">Find your favourite <span aria-hidden="true">⟶</span></a></div>

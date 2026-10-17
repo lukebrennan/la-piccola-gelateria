@@ -35,13 +35,28 @@ export const SITE = {
   directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=40.6340,14.6027',
 } as const;
 
-export const NAV = [
-  { label: 'Gelato', path: '/gelato' },
+export interface NavItem {
+  label: string;
+  path: string;
+  fragment?: string;
+}
+
+export const NAV: readonly NavItem[] = [
+  { label: 'Home', path: '/' },
+  { label: 'Our Gelato', path: '/gelato' },
   { label: 'Our Story', path: '/our-story' },
+  { label: 'Visit Us', path: '/visit-amalfi' },
+  { label: 'Catering', path: '/visit-amalfi', fragment: 'catering' },
+];
+
+export const FOOTER_NAV: readonly NavItem[] = [
+  { label: 'Our Story', path: '/our-story' },
+  { label: 'Flavours', path: '/gelato' },
   { label: 'Ingredients', path: '/ingredients' },
   { label: 'Visit Us', path: '/visit-amalfi' },
+  { label: 'Catering', path: '/visit-amalfi', fragment: 'catering' },
   { label: 'Journal', path: '/journal' },
-] as const;
+];
 
 export const WEEK = [
   'Monday',
