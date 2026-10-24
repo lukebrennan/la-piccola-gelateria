@@ -18,7 +18,7 @@ The homepage ends there. Keep its concise composition; additional stories, menu 
 - Cormorant Garamond for editorial headings and prose; Montserrat for small tracked navigation and labels; Oooh Baby for handwritten flavour names.
 - Fine one-pixel lines and restrained pill buttons. Warm, very subtle paper grain. Watercolour illustration is the primary decorative language.
 - Keep photos large and composed. Avoid prominent plaster texture, visible blue tile grids as backgrounds, oversized buttons, thick outlined plates, scattered rotated tiles, and long repeated promotional sections.
-- Inner pages use the same centred lemon heading, fine rules, serif prose, and quieter photo compositions.
+- Inner pages use compact centred headings, fine rules, serif prose, and quieter photo compositions. Keep the lemon artwork in the main wordmark; do not repeat it above each page title. Page introductions should bring the content into view promptly on desktop and phones.
 
 ## Assets and behaviour
 
@@ -26,7 +26,7 @@ Website-ready files are in `public/brand/website`. The original high-resolution 
 
 On phones, the hero photograph and copy stack, frames form two columns, and flavour notes stack below the cone and editorial copy. Navigation becomes an accessible menu with Escape dismissal and focus containment. Maintain the existing menu filters, dietary information, fragment links and visiting details.
 
-This is a fictional portfolio business. Preserve that disclosure and the central business data in `src/app/core/site.ts`; do not invent real contact details or social accounts.
+Maintain the central business data in `src/app/core/site.ts`; do not invent real contact details or social accounts. The footer uses a simple copyright line, as requested, without a portfolio disclosure or image credits link.
 
 ## Desktop polish decisions
 
