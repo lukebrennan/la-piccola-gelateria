@@ -31,10 +31,6 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/journal/article').then((m) => m.ArticlePage),
   },
   {
-    path: 'credits',
-    loadComponent: () => import('./pages/credits/credits').then((m) => m.Credits),
-  },
-  {
     path: '404',
     loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound),
   },

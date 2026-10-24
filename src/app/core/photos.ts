@@ -84,13 +84,43 @@ export const PHOTOS = {
     credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
   },
   flavourFiorDiLatte: {
-    id: '/brand/website/photography/flavours/vaniglia.webp',
-    alt: 'Fior di latte gelato, smooth and simply finished',
+    id: '/brand/website/photography/flavours/fior-di-latte.webp',
+    alt: 'Pure white fior di latte gelato in a blue-rimmed ceramic bowl with fresh milk',
     credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
   },
   flavourVaniglia: {
     id: '/brand/website/photography/flavours/vaniglia.webp',
     alt: 'Vanilla gelato with vanilla bean and a smooth, creamy finish', credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourCremaAmalfitana: {
+    id: '/brand/website/photography/flavours/crema-amalfitana.webp',
+    alt: 'Golden custard gelato with delicate lemon zest in a blue-rimmed ceramic bowl',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourPescaBianca: {
+    id: '/brand/website/photography/flavours/pesca-bianca.webp',
+    alt: 'Pale pink white-peach sorbet with fresh cut peaches in a blue-rimmed ceramic bowl',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourAranciaRossa: {
+    id: '/brand/website/photography/flavours/arancia-rossa.webp',
+    alt: 'Ruby-orange blood orange sorbet with fresh Sicilian blood orange slices',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourDeliziaAlLimone: {
+    id: '/brand/website/photography/flavours/delizia-al-limone.webp',
+    alt: 'Lemon cream gelato with sponge cake pieces and fine lemon zest in a ceramic bowl',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourSfogliatella: {
+    id: '/brand/website/photography/flavours/sfogliatella.webp',
+    alt: 'Ricotta and candied orange gelato with crisp pastry flakes and a sfogliatella pastry',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
+  },
+  flavourTiramisu: {
+    id: '/brand/website/photography/flavours/tiramisu.webp',
+    alt: 'Mascarpone and espresso tiramisu gelato dusted with cocoa, with savoiardi biscuits',
+    credit: 'La Piccola Gelateria', creditUrl: '/', ratio: 1,
   },
   cone: {
     id: '1715194803865-54f4358f87ef',
@@ -185,13 +215,6 @@ export const PHOTOS = {
     credit: 'Nenad Kaevik',
     creditUrl: u('nenadkaevik'),
     ratio: 4672 / 7008,
-  },
-  strawberryFig: {
-    id: '1452804882841-573355623310',
-    alt: 'Strawberries and figs on display at a market',
-    credit: 'Bodie Pyndus',
-    creditUrl: u('bpyndus'),
-    ratio: 3264 / 2176,
   },
   strawberries: {
     id: '1652448919151-c8be3cfb185b',

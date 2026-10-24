@@ -21,7 +21,6 @@ BASE_HREF=/ CUSTOM_DOMAIN=lapiccolagelateria.com npm run build:pages
 | `/gelato` | Interactive menu: filter by Classici, Frutta, Specialità, Senza Latte, or "on the counter today" (shareable via `?cat=` and `?today=1`) |
 | `/our-story` `/ingredients` `/visit-amalfi` | Story, sourcing, hours, map and directions |
 | `/journal` `/journal/:slug` | SEO article archive and reusable article template |
-| `/credits` | Photo and font credits |
 
 Every page sets its own title, description, canonical URL, Open Graph tags and JSON-LD (LocalBusiness / IceCreamShop, BreadcrumbList, FAQPage, Article).
 
@@ -52,5 +51,5 @@ Keep the existing domain and DNS configuration when publishing design updates.
 ## Notes
 
 - The business, address, phone, email and Instagram handle are fictional placeholders.
-- The hero, flavour photography and hand-painted brand artwork were created with AI image generation and are served locally as optimized WebP files. Additional editorial photographs use the Unsplash CDN; photographers are credited on `/credits`.
+- The hero, flavour photography and hand-painted brand artwork were created with AI image generation and are served locally as optimized WebP files. Additional editorial photographs use the Unsplash CDN; source attribution is retained in `src/app/core/photos.ts`.
 - The map is click-to-load (OpenStreetMap) so no third-party requests happen until a visitor asks.

@@ -84,6 +84,7 @@ export const FLAVOURS: Flavour[] = [
     diet: [],
     staple: true,
     icon: 'cup',
+    photo: 'flavourFiorDiLatte',
   },
   {
     slug: 'nocciola',
@@ -113,6 +114,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Contains egg'],
     staple: false,
     icon: 'sun',
+    photo: 'flavourCremaAmalfitana',
   },
   {
     slug: 'caffe',
@@ -125,17 +127,6 @@ export const FLAVOURS: Flavour[] = [
     photo: 'flavourCaffe',
   },
   {
-    slug: 'fico',
-    name: 'Fico',
-    description: 'Ripe figs with a thread of honey.',
-    category: 'Frutta',
-    diet: ['Milk-free'],
-    staple: false,
-    icon: 'leaf',
-    photo: 'strawberryFig',
-    months: [7, 8, 9, 10],
-  },
-  {
     slug: 'pesca-bianca',
     name: 'Pesca Bianca',
     description: 'White peaches from the Campanian hills.',
@@ -143,6 +134,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Milk-free'],
     staple: false,
     icon: 'sun',
+    photo: 'flavourPescaBianca',
     months: [6, 7, 8, 9],
   },
   {
@@ -153,6 +145,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Milk-free'],
     staple: false,
     icon: 'lemon',
+    photo: 'flavourAranciaRossa',
     months: [11, 12, 1, 2, 3, 4],
   },
   {
@@ -163,7 +156,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Contains egg', 'Contains gluten'],
     staple: false,
     icon: 'lemon',
-    photo: 'flavourLimone',
+    photo: 'flavourDeliziaAlLimone',
     note: 'Our take on the Amalfi Coast pastry.',
   },
   {
@@ -174,6 +167,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Contains gluten'],
     staple: false,
     icon: 'cone',
+    photo: 'flavourSfogliatella',
   },
   {
     slug: 'tiramisu',
@@ -183,6 +177,7 @@ export const FLAVOURS: Flavour[] = [
     diet: ['Contains egg', 'Contains gluten'],
     staple: false,
     icon: 'spoon',
+    photo: 'flavourTiramisu',
   },
 ];
 
