@@ -48,7 +48,7 @@
         <li class="item" [id]="f.slug" [style.--i]="i">
           <div class="item__plate">
             @if (f.photo) {
-              <lp-photo [photo]="photos[f.photo]" [ratio]="1" sizes="(min-width: 56rem) 12vw, 24vw" />
+              <lp-photo [photo]="photos[f.photo]" [ratio]="1" sizes="(min-width: 80rem) 400px, (min-width: 55rem) 30vw, 45vw" />
             } @else {
               <lp-icon [name]="f.icon" [size]="52" />
             }

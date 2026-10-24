@@ -48,13 +48,13 @@ export const INGREDIENTS: Ingredient[] = [
   {
     slug: 'seasonal-fruit',
     name: 'Seasonal fruit',
-    short: 'Strawberries, figs and peaches, only when they are at their best.',
+    short: 'Strawberries, peaches and blood oranges, only when they are at their best.',
     story:
-      'We make fruit flavours when the fruit is ripe and put them away when it is not. Strawberries from spring, white peaches through the summer, figs as the season turns. If it is not on the counter, it is not good right now, and we would rather tell you so.',
+      'We make fruit flavours when the fruit is ripe and put them away when it is not. Strawberries from spring, white peaches through the summer, blood oranges in the cooler months. If it is not on the counter, it is not good right now, and we would rather tell you so.',
     origin: 'Local orchards and markets',
     photo: 'ingredientStrawberries',
     tile: 'sun',
-    used: ['Fragola', 'Fico', 'Pesca Bianca'],
+    used: ['Fragola', 'Pesca Bianca', 'Arancia Rossa'],
   },
   {
     slug: 'dark-chocolate',

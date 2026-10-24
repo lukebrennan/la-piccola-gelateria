@@ -97,7 +97,7 @@ export const ARTICLES: Article[] = [
     slug: 'flavours-of-amalfi-coast',
     title: 'The Flavours of the Amalfi Coast',
     summary:
-      'Lemon, figs, nuts and sweet pastry: the tastes that define the coast, and where you will find them in our gelato.',
+      'Lemon, peaches, nuts and sweet pastry: the tastes that define the coast, and where you will find them in our gelato.',
     date: '2026-07-30',
     minutes: 5,
     photo: 'ceramics',
@@ -114,9 +114,9 @@ export const ARTICLES: Article[] = [
         ],
       },
       {
-        h2: 'Figs and stone fruit',
+        h2: 'Summer stone fruit',
         p: [
-          'As the summer turns, figs arrive heavy and honey-sweet, and the white peaches come off the hills at the same time. We make both when they are ripe and stop when they are not.',
+          'White peaches arrive from the Campanian hills through the summer, fragrant and delicate. We make our peach sorbet when the fruit is ripe and stop when it is not.',
         ],
       },
       {
